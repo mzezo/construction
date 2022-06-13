@@ -11,8 +11,7 @@
     "clean": "rimraf .next out",
     "lint": "next lint",
     "check-types": "tsc --noEmit --pretty",
-    "test": "jest --watch",
-    "prepare": "husky install"
+    "test": "jest --watch"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
