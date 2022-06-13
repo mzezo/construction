@@ -1,5 +1,5 @@
 {
-  "name": "next-js-boilerplate",
+  "name": "construction",
   "version": "1.1.0",
   "scripts": {
     "dev": "next dev",
@@ -67,6 +67,5 @@
     "rimraf": "^3.0.2",
     "tailwindcss": "^3.0.24",
     "typescript": "^4.7.2"
-  },
-  "author": "Ixartz (https://github.com/ixartz)"
+  }
 }
