@@ -1,6 +1,6 @@
 import React from 'react';
+import { SwiperSlide } from 'swiper/react';
 import Carousel from '../UI/Carousel';
-import { SwiperSlide } from 'swiper/react'
 
 const HomeMainBanner = () => {
   return (

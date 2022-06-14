@@ -17,9 +17,7 @@ import '../styles/style.css';
 // import '../styles/style.min.css';
 import '../styles/templete.css';
 // import '../styles/templete.min.css';
-
-
-
+import '../plugins/font-awesome/css/all.css';
 
 import type { AppProps } from 'next/app';
 

@@ -6,6 +6,7 @@
     "plugin:prettier/recommended"
   ],
   "rules": {
+    "tailwindcss/no-custom-classname": "off",
     "prettier/prettier": [
       "error",
       {
@@ -24,12 +25,7 @@
         "tailwindcss",
         "simple-import-sort"
       ],
-      "extends": [
-        "plugin:tailwindcss/recommended",
-        "airbnb-typescript",
-        "next/core-web-vitals",
-        "plugin:prettier/recommended"
-      ],
+      "extends": ["airbnb-typescript", "next/core-web-vitals"],
       "parserOptions": {
         "project": "./tsconfig.json"
       },
