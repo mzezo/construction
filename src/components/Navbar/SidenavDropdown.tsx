@@ -1,14 +1,15 @@
-import { useState } from 'react';
+import { useState } from "react"
+import { motion } from 'framer-motion'
 
 interface Link {
-  href: string;
-  text: string;
+  href: string
+  text: string
 }
 
 function SidenavDropdown({ links, text }: { links: Link[]; text: any }) {
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(false)
 
-  const toggle = () => setActive(!active);
+  const toggle = () => setActive(!active)
 
   return (
     <li>
@@ -20,9 +21,13 @@ function SidenavDropdown({ links, text }: { links: Link[]; text: any }) {
         {text} <i className="fa fa-chevron-down"></i>
       </a>
 
-      {/* TODO: make the collapse animation */}
       {active && (
-        <ul className="space-y-5 pl-10">
+        <motion.ul
+          initial={{ opacity: 0, x: -100 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: 100 }}
+          className="space-y-5 pl-10"
+        >
           {links.map((link, index) => (
             <li key={index}>
               <a
@@ -33,10 +38,10 @@ function SidenavDropdown({ links, text }: { links: Link[]; text: any }) {
               </a>
             </li>
           ))}
-        </ul>
+        </motion.ul>
       )}
     </li>
-  );
+  )
 }
 
-export default SidenavDropdown;
+export default SidenavDropdown

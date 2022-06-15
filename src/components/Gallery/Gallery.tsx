@@ -12,7 +12,6 @@ function Gallery() {
           <h2 className="head-title m-b10">Design Projects</h2>
           <p>19+ years’ experience</p>
         </div>
-        {/* TODO: add animation */}
         <div className="row">
           <div className="col-lg-12 text-center">
             <div className="site-filters filter-style2 clearfix m-b20">
@@ -47,7 +46,6 @@ function Gallery() {
             </div>
           </div>
         </div>
-        {/* TODO: fix the responsive issue */}
         <div className="clearfix">
           <ul
             id="masonry"

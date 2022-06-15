@@ -1,7 +1,12 @@
+import { motion } from 'framer-motion'
+
 function GalleryImage({ imgSrc, title, subtitle, href }: { imgSrc?: string, title: string, subtitle: string, href: string }) {
   return (
-    <li
+    <motion.li
       className="card-container col-lg-4 col-md-6 col-sm-6 royal wow fadeInUp"
+      initial={{ opacity: 0, y: -100 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 100 }}
     >
       <div className="dlab-media dlab-img-overlay1 dlab-img-effect portbox3">
         <img src={imgSrc || "images/portfolio/portfolio-box2/pic1.jpg"} alt="" />
@@ -21,7 +26,7 @@ function GalleryImage({ imgSrc, title, subtitle, href }: { imgSrc?: string, titl
           </div>
         </div>
       </div>
-    </li>
+    </motion.li>
   )
 }
 

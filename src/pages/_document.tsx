@@ -11,7 +11,7 @@ class MyDocument extends Document {
         <link type="text/css" rel="stylesheet" href="/css/animate/animate.css" />
         <link type="text/css" rel="stylesheet" href="/css/animate/animate.min.css" />
         <link type="text/css" rel="stylesheet" href="/css/scrollbar.css" />
-
+{/* 
           <script type="text/javascript" src="/js/custom.js"></script>
           <script type="text/javascript" src="/js/custom.min.js"></script>
           <script type="text/javascript" src="/js/dz.ajax.js"></script>
@@ -30,7 +30,7 @@ class MyDocument extends Document {
           <script type="text/javascript" src="/js/bootstrap-select.min.js"></script>
           <script type="text/javascript" src="/js/jquery.bootstrap-touchspin.js"></script>
           <script type="text/javascript" src="/js/owl.carousel.js"></script>
-          <script type="text/javascript" src="/js/scrollbar.min.js"></script>
+          <script type="text/javascript" src="/js/scrollbar.min.js"></script> */}
 
         </Head>
         <body>
