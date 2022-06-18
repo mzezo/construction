@@ -9,7 +9,7 @@ function GalleryImage({ imgSrc, title, subtitle, href }: { imgSrc?: string, titl
       exit={{ opacity: 0, y: 100 }}
     >
       <div className="dlab-media dlab-img-overlay1 dlab-img-effect portbox3">
-        <img src={imgSrc || "images/portfolio/portfolio-box2/pic1.jpg"} alt="" />
+        <img src={imgSrc || "/images/portfolio/portfolio-box2/pic1.jpg"} alt="" />
         <div className="overlay-bx">
           <div className="portinner">
             <div className="port-up">

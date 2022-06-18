@@ -34,7 +34,7 @@ function LuxurySection() {
         </div>
       </div>
 
-      {/* TODO: add navigation */}
+      {/* TODO: create slider */}
       <div className="w-full h-[400px] absolute -bottom-20">
         <Swiper className="container h-full">
 

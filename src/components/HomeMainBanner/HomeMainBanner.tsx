@@ -10,7 +10,7 @@ const HomeMainBanner = () => {
           <div className="h-[520px] bg-[#121a2d] w-full">
             <div
               className="bg-cover bg-no-repeat bg-center w-full h-full"
-              style={{ backgroundImage: `url("images/background/bg1.jpg")` }}
+              style={{ backgroundImage: `url("/images/background/bg1.jpg")` }}
             >
               <div className="p-20">
                 <h1 className="text-6xl uppercase font-thin">
@@ -35,7 +35,7 @@ const HomeMainBanner = () => {
           <div className="h-[520px] bg-[#121a2d] w-full">
             <div
               className="bg-cover bg-no-repeat bg-center w-full h-full"
-              style={{ backgroundImage: `url("images/background/bg1.jpg")` }}
+              style={{ backgroundImage: `url("/images/background/bg1.jpg")` }}
             >
               <div className="p-20">
                 <h1 className="text-6xl uppercase font-thin">

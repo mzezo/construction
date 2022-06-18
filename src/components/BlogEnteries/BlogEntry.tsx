@@ -3,7 +3,7 @@ function BlogEntry({ title, description, href, imgSrc, footerText }: { title: st
     <div className="item">
       <div className="blog-post blog-grid style1">
         <div className="blog-media">
-          <img src={imgSrc || "images/blog/card/pic1.jpg"} alt="" />
+          <img src={imgSrc || "/images/blog/card/pic1.jpg"} alt="" />
         </div>
         <div className="dlab-post-text">
           <div className="dlab-post-title">

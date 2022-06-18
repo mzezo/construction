@@ -104,7 +104,7 @@ const ContactForm = () => {
                   design.
                 </h3>
                 <span className="sign">
-                  <img src="images/sign-2.png" alt="" /> Creative. Modern.
+                  <img src="/images/sign-2.png" alt="" /> Creative. Modern.
                   Smart.
                 </span>
               </div>
@@ -116,7 +116,7 @@ const ContactForm = () => {
                 className="col-lg-6 wow fadeInUp"
               >
                 <div className="form-img">
-                  <img src="images/laptop.png" alt="" />
+                  <img src="/images/laptop.png" alt="" />
                 </div>
               </motion.div>
             </div>

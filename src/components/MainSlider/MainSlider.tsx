@@ -21,7 +21,7 @@ const MainSlider = () => {
                 data-wow-duration="2s"
               >
                 <div className="radius-sm rs-wave">
-                  <img src="images/about/pic3.jpg" alt="" />
+                  <img src="/images/about/pic3.jpg" alt="" />
                 </div>
               </div>
               <div

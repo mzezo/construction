@@ -1,4 +1,12 @@
+import { useRouter } from "next/router"
+
+// TODO: ul arrow problem
+// TODO: nav responsive issue
 function NoSidenav({ pathname }: { pathname: string }) {
+
+  const router = useRouter()
+
+  console.log(router)
 
   const getTitle = () => pathname.split("-").join(' ').replace('/', '')
 
@@ -10,7 +18,7 @@ function NoSidenav({ pathname }: { pathname: string }) {
             <div className="container">
               <div className="logo-header mostion">
                 <a href="index.html">
-                  <img className="logo" src="images/logo-white.png" alt="" />
+                  <img className="logo" src="/images/logo-white.png" alt="" />
                 </a>
               </div>
               <button
@@ -68,7 +76,7 @@ function NoSidenav({ pathname }: { pathname: string }) {
               >
                 <div className="logo-header">
                   <a href="index.html">
-                    <img src="images/logo.png" alt="" />
+                    <img src="/images/logo.png" alt="" />
                   </a>
                 </div>
                 <ul className="nav navbar-nav">
@@ -317,7 +325,7 @@ function NoSidenav({ pathname }: { pathname: string }) {
 
       <div
         className="dlab-bnr-inr dlab-bnr-inr-lg overlay-primary-middle bg-pt"
-        style={{ backgroundImage: "url(images/banner/bnr3.jpg)" }}
+        style={{ backgroundImage: "url(/images/banner/bnr3.jpg)" }}
       >
         <div className="container">
           <div className="dlab-bnr-inr-entry">
@@ -330,7 +338,7 @@ function NoSidenav({ pathname }: { pathname: string }) {
                     <i className="fas fa-home"></i>
                   </a>
                 </li>
-                <li>Home</li>
+                <li>Pages</li>
                 <li>{getTitle()}</li>
               </ul>
             </div>

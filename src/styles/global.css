@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.comment-form *::placeholder {
+  @apply text-gray-600 !important;
+}
+
 .content p {
   @apply my-6;
 }

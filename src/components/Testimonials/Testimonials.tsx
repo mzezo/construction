@@ -1,9 +1,11 @@
+
+// TODO: create slider
 function Testimonials() {
   return (
     <div
       className="section-full bg-white content-inner-2"
       style={{
-        backgroundImage: "url(images/background/bg13.jpg)",
+        backgroundImage: "url(/images/background/bg13.jpg)",
         backgroundSize: "cover",
       }}
     >
@@ -23,7 +25,7 @@ function Testimonials() {
                 <div className="testimonial-1">
                   <div className="testimonial-pic radius">
                     <img
-                      src="images/testimonials/pic1.jpg"
+                      src="/images/testimonials/pic1.jpg"
                       width="100"
                       height="100"
                       alt=""
@@ -49,7 +51,7 @@ function Testimonials() {
                 <div className="testimonial-1">
                   <div className="testimonial-pic radius">
                     <img
-                      src="images/testimonials/pic2.jpg"
+                      src="/images/testimonials/pic2.jpg"
                       width="100"
                       height="100"
                       alt=""
@@ -75,7 +77,7 @@ function Testimonials() {
                 <div className="testimonial-1">
                   <div className="testimonial-pic radius">
                     <img
-                      src="images/testimonials/pic3.jpg"
+                      src="/images/testimonials/pic3.jpg"
                       width="100"
                       height="100"
                       alt=""

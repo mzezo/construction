@@ -1,5 +1,5 @@
 import BlogEntry from "./BlogEntry"
-import fakeData from "./fakeData.json"
+import fakeData from "../BlogItem/fakeData.json"
 
 function BlogEnteries() {
   return (
@@ -11,7 +11,7 @@ function BlogEnteries() {
         </div>
 
         <div className="blog-carousel grid grid-cols-2 gap-5 md:gap-8 md:grid-cols-3">
-          {fakeData.map((ele, index) => (
+          {fakeData.slice(0, 3).map((ele, index) => (
             <BlogEntry key={index} {...ele} />
           ))}
         </div>
