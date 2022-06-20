@@ -15,7 +15,7 @@ const Navbar = () => {
             <div className="header-content-bx">
               <div className="logo-header">
                 <a href="index.html">
-                  <img src="images/logo-white.png" alt="" />
+                  <img src="/images/logo-white.png" alt="" />
                 </a>
               </div>
               <div className="extra-nav">
@@ -75,7 +75,7 @@ const Navbar = () => {
       >
         <div className="logo-header">
           <a href="index.html">
-            <img src="images/logo.png" alt="" />
+            <img src="/images/logo.png" alt="" />
           </a>
         </div>
         <ul className="nav navbar-nav">

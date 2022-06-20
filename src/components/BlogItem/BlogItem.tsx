@@ -5,13 +5,13 @@ import { motion } from 'framer-motion'
 import { fadeInUp } from "@/utils/Motion/FadeInUp";
 
 interface BlogItemType {
-  title: string,
-  description: string,
-  imgSrc: string,
-  postedBy: string,
-  date: string,
-  likes: string,
-  comments: string,
+  title: any,
+  description: any,
+  imgSrc: any,
+  postedBy: any,
+  date: any,
+  likes: any,
+  comments: any,
 }
 
 function BlogItem({ title, description, imgSrc, postedBy, date, likes, comments }: BlogItemType) {
@@ -35,7 +35,7 @@ function BlogItem({ title, description, imgSrc, postedBy, date, likes, comments 
       <div className="blog-post blog-grid blog-rounded radius-sm shadow">
         <div className="dlab-post-media dlab-img-effect">
           <a href="blog-details.html">
-            <img src={imgSrc || "images/blog/blog/pic1.jpg"} alt="" />
+            <img src={imgSrc || "/images/blog/blog/pic1.jpg"} alt="" />
           </a>
         </div>
         <div className="dlab-info p-lr50 p-tb40">

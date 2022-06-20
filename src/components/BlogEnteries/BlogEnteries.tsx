@@ -1,7 +1,6 @@
 import { getData } from "@/services/getData";
 import { useState, useEffect } from "react";
 import BlogEntry from "./BlogEntry"
-import fakeData from "./fakeData.json"
 
 function BlogEnteries() {
 

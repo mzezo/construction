@@ -1,21 +1,15 @@
 import BlogItem from "@/components/BlogItem/BlogItem"
-import data from '@/components/BlogItem/fakeData.json'
-
+import data from "@/components/BlogItem/fakeData.json"
 
 function BlogGrid() {
-
   return (
     <div className="content-block">
       <div className="section-full content-inner">
         <div className="container">
           <div className="dlab-blog-grid-3 row" id="masonry">
-
-
             {data.map((ele, index) => (
               <BlogItem key={index} {...ele} />
             ))}
-
-            
           </div>
 
           <div className="pagination-bx radius clearfix text-center">

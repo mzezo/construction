@@ -11,7 +11,7 @@ function FeatureGridSection() {
             <div className="icon-bx-wraper sr-iconbox">
               <div className="icon-lg m-b20">
                 <a href="javascript:void(0)" className="icon-cell">
-                  <img src="images/icon/icon1.png" alt="" />
+                  <img src="/images/icon/icon1.png" alt="" />
                 </a>
               </div>
               <div className="icon-content">
@@ -31,7 +31,7 @@ function FeatureGridSection() {
             <div className="icon-bx-wraper sr-iconbox">
               <div className="icon-lg m-b20">
                 <a href="javascript:void(0)" className="icon-cell">
-                  <img src="images/icon/icon2.png" alt="" />
+                  <img src="/images/icon/icon2.png" alt="" />
                 </a>
               </div>
               <div className="icon-content">
@@ -51,7 +51,7 @@ function FeatureGridSection() {
             <div className="icon-bx-wraper sr-iconbox">
               <div className="icon-lg m-b20">
                 <a href="javascript:void(0)" className="icon-cell">
-                  <img src="images/icon/icon3.png" alt="" />
+                  <img src="/images/icon/icon3.png" alt="" />
                 </a>
               </div>
               <div className="icon-content">
@@ -71,7 +71,7 @@ function FeatureGridSection() {
             <div className="icon-bx-wraper sr-iconbox">
               <div className="icon-lg m-b20">
                 <a href="javascript:void(0)" className="icon-cell">
-                  <img src="images/icon/icon4.png" alt="" />
+                  <img src="/images/icon/icon4.png" alt="" />
                 </a>
               </div>
               <div className="icon-content">
@@ -91,7 +91,7 @@ function FeatureGridSection() {
             <div className="icon-bx-wraper sr-iconbox">
               <div className="icon-lg m-b20">
                 <a href="javascript:void(0)" className="icon-cell">
-                  <img src="images/icon/icon5.png" alt="" />
+                  <img src="/images/icon/icon5.png" alt="" />
                 </a>
               </div>
               <div className="icon-content">
@@ -111,7 +111,7 @@ function FeatureGridSection() {
             <div className="icon-bx-wraper sr-iconbox">
               <div className="icon-lg m-b20">
                 <a href="javascript:void(0)" className="icon-cell">
-                  <img src="images/icon/icon6.png" alt="" />
+                  <img src="/images/icon/icon6.png" alt="" />
                 </a>
               </div>
               <div className="icon-content">

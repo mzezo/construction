@@ -10,7 +10,7 @@ function Footer() {
                 data-wow-delay="0.4s"
                 data-wow-duration="1s"
               >
-                <img alt="" src="images/logo/logo2.jpg" />
+                <img alt="" src="/images/logo/logo2.jpg" />
               </div>
             </div>
             <div className="item">
@@ -19,7 +19,7 @@ function Footer() {
                 data-wow-delay="0.6s"
                 data-wow-duration="1s"
               >
-                <img alt="" src="images/logo/logo3.jpg" />
+                <img alt="" src="/images/logo/logo3.jpg" />
               </div>
             </div>
             <div className="item">
@@ -28,7 +28,7 @@ function Footer() {
                 data-wow-delay="0.8s"
                 data-wow-duration="1s"
               >
-                <img alt="" src="images/logo/logo4.jpg" />
+                <img alt="" src="/images/logo/logo4.jpg" />
               </div>
             </div>
             <div className="item">
@@ -37,7 +37,7 @@ function Footer() {
                 data-wow-delay="0.10s"
                 data-wow-duration="1s"
               >
-                <img alt="" src="images/logo/logo5.jpg" />
+                <img alt="" src="/images/logo/logo5.jpg" />
               </div>
             </div>
             <div className="item">
@@ -46,7 +46,7 @@ function Footer() {
                 data-wow-delay="0.12s"
                 data-wow-duration="1s"
               >
-                <img alt="" src="images/logo/logo6.jpg" />
+                <img alt="" src="/images/logo/logo6.jpg" />
               </div>
             </div> */}
           </div>
@@ -61,7 +61,7 @@ function Footer() {
               <div className="dlab-thum dlab-img-overlay1 primary">
                 <a href="javascript:void(0);">
                   {" "}
-                  <img src="images/gallery/gallery-4/pic1.jpg" alt="" />{" "}
+                  <img src="/images/gallery/gallery-4/pic1.jpg" alt="" />{" "}
                 </a>
                 <div className="overlay-bx">
                   <div className="overlay-icon">
@@ -89,7 +89,7 @@ function Footer() {
               <div className="dlab-thum dlab-img-overlay1 primary">
                 <a href="javascript:void(0);">
                   {" "}
-                  <img src="images/gallery/gallery-4/pic2.jpg" alt="" />{" "}
+                  <img src="/images/gallery/gallery-4/pic2.jpg" alt="" />{" "}
                 </a>
                 <div className="overlay-bx">
                   <div className="overlay-icon">
@@ -117,7 +117,7 @@ function Footer() {
               <div className="dlab-thum dlab-img-overlay1 primary">
                 <a href="javascript:void(0);">
                   {" "}
-                  <img src="images/gallery/gallery-4/pic3.jpg" alt="" />{" "}
+                  <img src="/images/gallery/gallery-4/pic3.jpg" alt="" />{" "}
                 </a>
                 <div className="overlay-bx">
                   <div className="overlay-icon">
@@ -145,7 +145,7 @@ function Footer() {
               <div className="dlab-thum dlab-img-overlay1 primary">
                 <a href="javascript:void(0);">
                   {" "}
-                  <img src="images/gallery/gallery-4/pic4.jpg" alt="" />{" "}
+                  <img src="/images/gallery/gallery-4/pic4.jpg" alt="" />{" "}
                 </a>
                 <div className="overlay-bx">
                   <div className="overlay-icon">
@@ -173,7 +173,7 @@ function Footer() {
               <div className="dlab-thum dlab-img-overlay1 primary">
                 <a href="javascript:void(0);">
                   {" "}
-                  <img src="images/gallery/gallery-4/pic1.jpg" alt="" />{" "}
+                  <img src="/images/gallery/gallery-4/pic1.jpg" alt="" />{" "}
                 </a>
                 <div className="overlay-bx">
                   <div className="overlay-icon">
@@ -201,7 +201,7 @@ function Footer() {
               <div className="dlab-thum dlab-img-overlay1 primary">
                 <a href="javascript:void(0);">
                   {" "}
-                  <img src="images/gallery/gallery-4/pic2.jpg" alt="" />{" "}
+                  <img src="/images/gallery/gallery-4/pic2.jpg" alt="" />{" "}
                 </a>
                 <div className="overlay-bx">
                   <div className="overlay-icon">
@@ -237,7 +237,7 @@ function Footer() {
             <div className="row">
               <div className="col-xl-3 col-lg-12 d-flex">
                 <div className="footer-logo align-self-center">
-                  <img src="images/logo-white.png" alt="" />
+                  <img src="/images/logo-white.png" alt="" />
                 </div>
               </div>
               <div className="col-xl-3 col-lg-4 col-md-4">
