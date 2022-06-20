@@ -5,8 +5,9 @@ import ContactForm from "@/components/ContactForm/ContactForm"
 import Gallery from "@/components/Gallery/Gallery"
 import LuxurySection from "@/components/LuxurySection/LuxurySection"
 import FeatureGridSection from "@/components/FeatureGridSection/FeatureGridSection"
-import Testimonials from "@/components/Testimonials/Testimonials"
+// import Testimonials from "@/components/Testimonials/Testimonials"
 import BlogEnteries from "@/components/BlogEnteries/BlogEnteries"
+import LatestProject from "@/components/LatestProject/LatestProject"
 
 const Index = () => {
   return (
@@ -14,11 +15,12 @@ const Index = () => {
       <Navbar />
       <HomeMainBanner />
       <MainSlider />
+      <LatestProject />
       <ContactForm />
       <Gallery />
       <LuxurySection />
       <FeatureGridSection />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <BlogEnteries />
     </>
   )

@@ -4,7 +4,7 @@ function Footer() {
       <div className="section-full bg-white content-inner-2">
         <div className="container">
           <div className="flex flex-wrap">
-            <div className="item">
+            {/* <div className="item">
               <div
                 className="client-logo-inner wow zoomIn"
                 data-wow-delay="0.4s"
@@ -48,7 +48,7 @@ function Footer() {
               >
                 <img alt="" src="/images/logo/logo6.jpg" />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

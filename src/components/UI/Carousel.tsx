@@ -7,16 +7,17 @@ import 'swiper/css';
 const Carousel: React.FC<any> = ({ children }) => {
   return (
     <Swiper
+      observeParents= {true}
+      observer= {true} 
       spaceBetween={50}
       autoplay={{
-        delay: 2500,
+        delay: 3000,
         disableOnInteraction: false,
       }}
       slidesPerView={1}
       modules={[Autoplay]}
-
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}
+      // onSlideChange={() => console.log('slide change')}
+      // onSwiper={(swiper) => console.log(swiper)}
     >
       {children}
 
