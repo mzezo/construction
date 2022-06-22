@@ -1731,7 +1731,7 @@ dl dd {
     display: block;
     margin: 0;
     width: 100%;
-    height: auto;
+    /* height: auto; */
     box-shadow: 0 0 0 rgba(0, 0, 0, 0);
     -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
     -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
@@ -10567,7 +10567,7 @@ ul[class*="list-"]{
 .dlab-media img,
 .dlab-post-media img {
     width: 100%;
-    height: auto;
+    /* height: auto; */
 }
 /* Box Background */
 .dlab-box-bg{
