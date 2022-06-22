@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import GalleryImage from "./GalleryImage"
 import { getData } from '../../services/getData';
+import { useRouter } from "next/router";
 
 function Gallery() {
   const [category, setCategory] = useState('');
@@ -8,16 +9,18 @@ function Gallery() {
   const [filteredprojects, setFilteredProjects] = useState<any>([{id:1}]);
   const [categories, setCategories] = useState<any>([]);
   const [loading, setLoading] = useState(true);
+  const router = useRouter();
+	const { locale } = router;
 
   useEffect(() => {
-    getData('/projects?populate=*').then((data) => { 
+    getData(`/projects?populate=*&locale=${locale}`).then((data) => { 
       setProjects(data?.data?.data);
       setFilteredProjects(data?.data?.data);
       setLoading(false);
     })
 
-    getData('/categories?populate=*').then((data) => setCategories(data?.data))
-  }, [])
+    getData(`/categories?populate=*&locale=${locale}`).then((data) => setCategories(data?.data))
+  }, [locale])
 
   useEffect(() => {
     if(category){

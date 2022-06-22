@@ -24,9 +24,19 @@ import { useRouter } from "next/router"
 
 import NoSidenav from "@/components/Navbar/NoSidenav"
 import Footer from "@/components/Footer/Footer"
+import { getDirection } from "@/hooks/useDirections"
+import { useEffect } from "react"
+import { appWithTranslation } from "next-i18next";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const { pathname } = useRouter()
+  const router = useRouter();
+	const dir = getDirection(router.locale);
+
+	useEffect(() => {
+    console.log("getDirection", dir)
+		document.documentElement.dir = dir;
+	}, [dir]);
 
   return (
     <>
@@ -37,4 +47,4 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   )
 }
 
-export default MyApp
+export default appWithTranslation(MyApp);

@@ -1,6 +1,61 @@
-import { Swiper, SwiperSlide } from "swiper/react"
+import { getData } from "@/services/getData";
+import { useEffect, useState } from "react";
+import { Autoplay, Navigation } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+const qs = require("qs");
+import { useSwiper } from "swiper/react";
+
+import "swiper/css/navigation";
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+
+const query = qs.stringify(
+  {
+    filters: {
+      featured: {
+        $eq: true,
+      },
+    },
+    populate: "*",
+  },
+  {
+    encodeValuesOnly: true,
+  }
+);
+
+export function SlideNextButton() {
+  const swiper = useSwiper();
+
+  return (
+    <button className="text-white px-4 font-bold uppercase" onClick={() => swiper.slideNext()}>
+       next
+       <i className="fas fa-long-arrow-alt-right px-2 opacity-50"></i>
+    </button>
+  );
+}
+
+export function SlidePrevButton() {
+  const swiper = useSwiper();
+
+  return (
+    <button  className="text-white px-4 font-bold uppercase" onClick={() => swiper.slidePrev()}>
+      <i className="fas fa-long-arrow-alt-left px-2 opacity-50"></i>
+       prev
+    </button>
+  );
+}
 
 function LuxurySection() {
+  const [projects, setProjects] = useState<any>([]);
+  // const swiper = useSwiper();
+
+  useEffect(() => {
+    getData(`/projects?${query}`).then((data) => {
+      setProjects(data?.data?.data);
+    });
+  }, []);
+
   return (
     <div
       className="h-screen bg-white relative mb-20"
@@ -35,127 +90,66 @@ function LuxurySection() {
       </div>
 
       {/* TODO: create slider */}
-      <div className="w-full h-[400px] absolute -bottom-20">
-        <Swiper className="container h-full">
-
-          <SwiperSlide
-            className="flex items-center"
-            style={{
-              backgroundImage: "url(images/projects/project/img1.jpg)",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          >
-            <div className="bg-white w-1/2 p-10">
-              <ul className="list-details">
-                <li>
-                  <strong>Clients:</strong>
-                  <span>Ethan Hunt</span>
-                </li>
-                <li>
-                  <strong>Completion:</strong>
-                  <span>February 5th, 2017</span>
-                </li>
-                <li>
-                  <strong>Project Type:</strong>
-                  <span>Villa, Residence</span>
-                </li>
-                <li>
-                  <strong>Architects:</strong>
-                  <span>Logan Cee</span>
-                </li>
-                <li>
-                  <a
-                    href="portfolio-2.html"
-                    className="btn outline outline-2 button-lg black m-t10 radius-xl btn-aware"
-                  >
-                    View Portfolio<span></span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </SwiperSlide>
-
-          <SwiperSlide
-            className="flex items-center"
-            style={{
-              backgroundImage: "url(images/projects/project/img1.jpg)",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          >
-            <div className="bg-white w-1/2 p-10">
-              <ul className="list-details">
-                <li>
-                  <strong>Clients:</strong>
-                  <span>Ethan Hunt</span>
-                </li>
-                <li>
-                  <strong>Completion:</strong>
-                  <span>February 5th, 2017</span>
-                </li>
-                <li>
-                  <strong>Project Type:</strong>
-                  <span>Villa, Residence</span>
-                </li>
-                <li>
-                  <strong>Architects:</strong>
-                  <span>Logan Cee</span>
-                </li>
-                <li>
-                  <a
-                    href="portfolio-2.html"
-                    className="btn outline outline-2 button-lg black m-t10 radius-xl btn-aware"
-                  >
-                    View Portfolio<span></span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </SwiperSlide>
-
-          <SwiperSlide
-            className="flex items-center"
-            style={{
-              backgroundImage: "url(images/projects/project/img1.jpg)",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          >
-            <div className="bg-white w-1/2 p-10">
-              <ul className="list-details">
-                <li>
-                  <strong>Clients:</strong>
-                  <span>Ethan Hunt</span>
-                </li>
-                <li>
-                  <strong>Completion:</strong>
-                  <span>February 5th, 2017</span>
-                </li>
-                <li>
-                  <strong>Project Type:</strong>
-                  <span>Villa, Residence</span>
-                </li>
-                <li>
-                  <strong>Architects:</strong>
-                  <span>Logan Cee</span>
-                </li>
-                <li>
-                  <a
-                    href="portfolio-2.html"
-                    className="btn outline outline-2 button-lg black m-t10 radius-xl btn-aware"
-                  >
-                    View Portfolio<span></span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </SwiperSlide>
-          
+      <div className="w-full h-[430px] absolute -bottom-20">
+        <Swiper
+          className="container h-full"
+          modules={[Autoplay, Navigation]}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+          }}
+        >
+          {projects?.map((project: any) => (
+            <SwiperSlide
+              className="flex items-center"
+              style={{
+                backgroundImage:
+                  `url(${project?.attributes?.image?.data?.attributes?.url})` ??
+                  `url(images/projects/project/img1.jpg)`,
+                // backgroundSize: "cover",
+                // backgroundPosition: "center",
+              }}
+            >
+              <div className="flex justify-end px-12 py-4 absolute bottom-0 right-0">
+                <SlidePrevButton />
+                <SlideNextButton />
+              </div>
+              <div className="bg-white w-1/2 p-10">
+                <ul className="list-details">
+                  <li>
+                    <strong>Clients:</strong>
+                    <span>{project?.attributes?.client}</span>
+                  </li>
+                  <li>
+                    <strong>Completion:</strong>
+                    <span>{project?.attributes?.date}</span>
+                  </li>
+                  <li>
+                    <strong>Project Type:</strong>
+                    <span>
+                      {project?.attributes?.category?.data?.attributes?.name}
+                    </span>
+                  </li>
+                  <li>
+                    <strong>Architects:</strong>
+                    <span>Logan Cee</span>
+                  </li>
+                  <li>
+                    <a
+                      href="portfolio-2.html"
+                      className="btn outline outline-2 button-lg black m-t10 radius-xl btn-aware"
+                    >
+                      View Portfolio<span></span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </div>
-  )
+  );
 }
 
-export default LuxurySection
+export default LuxurySection;

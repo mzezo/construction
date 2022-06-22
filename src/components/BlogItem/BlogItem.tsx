@@ -53,7 +53,7 @@ function BlogItem({ title, description, imgSrc, postedBy, date, likes, comments 
             </ul>
           </div>
           <div className="dlab-post-title">
-            <h4 className="post-title">
+            <h4 className="post-title truncate">
               <a href="blog-details.html">{title}</a>
             </h4>
           </div>

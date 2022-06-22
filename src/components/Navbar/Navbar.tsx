@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 
 import SidenavDropdown from './SidenavDropdown';
@@ -6,13 +7,15 @@ const Navbar = () => {
   const [showSidenav, setShowSidenav] = useState(false);
 
   const toggle = () => setShowSidenav(!showSidenav);
+  const router = useRouter();
+	const { asPath, locale } = router;
 
   return (
     <header className="site-header mo-left header-full header style1">
       <div className="sticky-header main-bar-wraper navbar-expand-lg">
         <div className="main-bar clearfix ">
           <div className="container-fluid">
-            <div className="header-content-bx">
+            <div className="header-content-bx w-full flex justify-between">
               <div className="logo-header">
                 <a href="index.html">
                   <img src="/images/logo-white.png" alt="" />
@@ -48,7 +51,7 @@ const Navbar = () => {
                     <li className="contact-no">
                       <span>+38 (097) 252 79 55</span>
                     </li>
-                    <li className="search-btn">
+                    <li className="">
                       <a
                         href="#"
                         className="btn radius-xl white menu-icon"
@@ -99,14 +102,29 @@ const Navbar = () => {
             links={[{ text: 'About me', href: '#' }]}
           />
 
-          <SidenavDropdown
+          {/* <SidenavDropdown
             text="Portfolio"
             links={[{ text: 'About me', href: '#' }]}
-          />
+          /> */}
 
           <SidenavDropdown
             text="Contact Us"
             links={[{ text: 'About me', href: '#' }]}
+          />
+          <SidenavDropdown
+            text="Language"
+            handleCloseNav={toggle}
+            links={[{ 
+              text: 'en',
+              href: '#',
+              onClick: () => router.push(asPath, undefined, {
+              locale: 'en',
+            })},
+            { text: 'ar',
+              href: '#',
+              onClick: () => router.push(asPath, undefined, {
+                locale: 'ar',
+            })},]}
           />
         </ul>
         <div className="social-menu">

@@ -7,18 +7,27 @@ import { getData } from "../../services/getData";
 import qs from "qs";
 import { Navigation } from "swiper";
 import "swiper/css/navigation";
+import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 
 const ContactForm = () => {
+  const { t } = useTranslation("common");
+
+
   const [latestProject, setLatestProject] = useState<any>({});
 
   const controls = useAnimation();
   const [ref, inView] = useInView();
+  const router = useRouter();
+	const { locale } = router;
+
 
   useEffect(() => {
     const query = qs.stringify(
       {
         sort: ["date:desc"],
         populate: "*",
+        locale: locale
       },
       {
         encodeValuesOnly: true,
@@ -28,7 +37,7 @@ const ContactForm = () => {
       console.log("Latest Project", data?.data?.data[0]);
       setLatestProject(data?.data?.data[0]);
     });
-  }, []);
+  }, [locale]);
 
   useEffect(() => {
     if (inView) {
@@ -56,7 +65,7 @@ const ContactForm = () => {
           >
             <div className="w-full md:w-[53vw] h-[350px] -mr-20 md:h-[70%] flex items-center overflow-hidden">
               {latestProject?.attributes?.images?.data?.map((item: any) => (
-                <SwiperSlide>
+                <SwiperSlide className="ml-2">
                   <div className="w-full">
                     <img
                       src={
@@ -83,24 +92,24 @@ const ContactForm = () => {
             className="wow fadeInUp"
           >
             <div
-              className="about-bx1-content wow fadeIn md:pl-10"
+              className="about-bx1-content wow fadeIn md:pl-10 flex flex-col items-start mx-4"
               data-wow-delay="0.2s"
               data-wow-duration="2s"
             >
-              <h2>Our latest project {latestProject?.attributes?.name}</h2>
+              <h2>{t("latest-project")} {latestProject?.attributes?.name}</h2>
               <p>{latestProject?.attributes?.description}</p>
               <div className="m-b30">
                 <ul className="list-details">
                   <li>
-                    <strong>Clients:</strong>
+                    <strong>{t("client")}</strong>
                     <span>{latestProject?.attributes?.client}</span>
                   </li>
                   <li>
-                    <strong>Completion:</strong>
+                    <strong>{t("completion")}</strong>
                     <span>{latestProject?.attributes?.date}</span>
                   </li>
                   <li>
-                    <strong>Project Type:</strong>
+                    <strong>{t("project-type")}</strong>
                     <span>
                       {
                         latestProject?.attributes?.category?.data?.attributes
@@ -122,7 +131,7 @@ const ContactForm = () => {
                   href="carousel-showcase.html"
                   className="btn button-lg black radius-xl btn-aware outline outline-2"
                 >
-                  View Portfolio<span></span>
+                  {t("view-portfolio")}<span></span>
                 </a>
               </div>
             </div>
