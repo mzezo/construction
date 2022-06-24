@@ -127,7 +127,7 @@ const HomeMainBanner = () => {
   return (
     <div className="bg-[#121a2d] w-full h-[590px]">
       <Carousel>
-        {homeBanners?.data?.map((item: any, index: number) => (
+        {homeBanners?.data?.map((item: any) => (
           <SwiperSlide>
             <BannerSlide key={item?.id} {...item?.attributes} />
           </SwiperSlide>
