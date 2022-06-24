@@ -14,7 +14,7 @@ interface BlogItemType {
   comments: any,
 }
 
-function BlogItem({ name, description, image, postedBy, date, likes, comments }: BlogItemType) {
+function BlogItem({ name, description, image, date }: BlogItemType) {
 
   const controls = useAnimation();
   const [ref, inView] = useInView();

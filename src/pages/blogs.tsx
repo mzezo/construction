@@ -1,5 +1,4 @@
 import BlogItem from "@/components/BlogItem/BlogItem"
-import data from "@/components/BlogItem/fakeData.json"
 import { getData } from "@/services/getData"
 import { useEffect, useState } from "react"
 
