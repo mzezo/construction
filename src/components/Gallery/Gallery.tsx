@@ -30,6 +30,12 @@ function Gallery() {
     }
   }, [category])
 
+  {loading && (
+    <div>
+      ...Loading
+    </div>
+  )}
+
   return (
     <div className="section-full bg-white content-inner-2" id="projects">
       <div className="container">
@@ -62,7 +68,7 @@ function Gallery() {
             id="masonry"
             className="dlab-gallery-listing gallery mfp-gallery text-center row p-l0 sp10"
           >
-            {filteredprojects && filteredprojects?.slice(0,6).map((ele: any, index: number) => (
+            {filteredprojects && filteredprojects?.slice(0,6).map((ele: any) => (
               <GalleryImage key={ele?.id} {...ele?.attributes }/>
             ))}
           </ul>

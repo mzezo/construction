@@ -14,7 +14,7 @@ function SidenavDropdown({ links, text, handleCloseNav }: { links: Link[]; text:
 
   const toggle = () => setActive(!active)
   const router = useRouter();
-	const { asPath, locale } = router;
+	const { asPath } = router;
 
   const handleItemClicked = (lang: string) => {
     setActive(false);
