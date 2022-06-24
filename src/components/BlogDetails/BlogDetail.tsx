@@ -1,3 +1,4 @@
+import ReactMarkdown from "react-markdown";
 
 function AuthorBlock() {
   return (
@@ -77,88 +78,40 @@ function BlogHeader() {
 
 
 // TODO: sync data
-function BlogDetails() {
+function BlogDetails({blog}: any) {
   return (
     <>
       <div className="blog-post blog-single blog-post-style-2 sidebar">
-        <BlogHeader />
+        {/* <BlogHeader /> */}
         <div
           className="dlab-post-media blog-single post-link wow fadeIn"
           data-wow-duration="2s"
           data-wow-delay="0.2s"
         >
           <a href="javascript:;">
-            <img src="/images/blog/large/pic3.jpg" alt="" />
+            <img 
+              src={blog?.image?.data?.attributes?.url  || "/images/blog/large/pic3.jpg"} 
+              alt=""
+              className="h-[380px] bg-cover"
+            />
           </a>
-          <a href="javascript:void(0);" className="post-link-in">
+          {/* <a href="" className="post-link-in">
             MARKETING
-          </a>
+          </a> */}
         </div>
         <div className="dlab-post-info">
           <div className="dlab-post-text text">
             <h4>
-              To take a trivial example, which of us ever undertakes laborious
-              physical exercise, except to obtain some advantage from it? But
-              who has any right to find fault with a man who chooses a{" "}
+              {blog?.name}
             </h4>
-            <p>
-              Me is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout. The
-              point of using Lorem Ipsum is that it has a more-or-less normal
-              distribution of letters, as opposed to using 'Content here,
-              content here.
-            </p>
-            <p>
-              It is a long established fact that a reader will be distracted by
-              the readable content of a page when looking at its layout. The
-              point of using Lorem Ipsum is that it has a more-or-less normal
-              distribution of letters, as opposed to using 'Content here,
-              content here', making it look like readable English. Many desktop
-              publishing packages and web page editors now use Lorem Ipsum as
-              their default model text, and a search for 'lorem ipsum' will
-              uncover many web sites still in their infancy. Various versions
-              have evolved over the years, sometimes by accident, sometimes on
-              purpose (injected humour and the like).
-            </p>
-            <blockquote className="wp-block-quote">
-              <p>
-                ulien Macdonald customer doesn’t sit in the corner of a room,
-                she is the room she’s the host the designer laughed when we met
-                him yesterday afternoon to see the.
-              </p>
-            </blockquote>
-            <p>
-              A huge benefit of blocks is that you can edit them in place and
-              manipulate your content directly. Instead of having fields for
-              editing things like the source of a quote, or the text of a
-              button, you can directly change the content. Try editing the
-              following quote:
-            </p>
-            <div className="our-gallery">
-              <img
-                src="/images/blog/large/pic1.jpg"
-                className="m-b30 wow fadeIn"
-                data-wow-duration="2s"
-                data-wow-delay="0.4s"
-                alt=""
-              />
-              <img
-                src="/images/blog/large/pic2.jpg"
-                className="m-b30 wow fadeIn"
-                data-wow-duration="2s"
-                data-wow-delay="0.6s"
-                alt=""
-              />
-            </div>
-            <p>
-              A huge benefit of blocks is that you can edit them in place and
-              manipulate your content directly. Instead of having fields for
-              editing things like the source of a quote, or the text of a
-              button, you can directly change the content. Try editing the
-              following quote:
-            </p>
+            
+            <ReactMarkdown children={blog?.description} />
+
+            
+           
+           
           </div>
-          <div className="dlab-post-tags d-flex">
+          {/* <div className="dlab-post-tags d-flex">
             <div className="post-tags">
               Tage :<a href="javascript:void(0);">Creative</a>
               <a href="javascript:void(0);">Media</a>
@@ -185,11 +138,11 @@ function BlogDetails() {
                 </li>
               </ul>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 
-      <AuthorBlock />
+      {/* <AuthorBlock /> */}
     </>
   )
 }

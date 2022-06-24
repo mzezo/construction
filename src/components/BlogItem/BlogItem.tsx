@@ -58,7 +58,7 @@ function BlogItem({ name, description, image, postedBy, date, likes, comments }:
             </h4>
           </div>
           <div className="dlab-post-text">
-            <p>
+            <p className="">
               {description}
             </p>
           </div>

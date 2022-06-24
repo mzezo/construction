@@ -21,7 +21,7 @@ function BlogEnteries() {
 
         <div className="blog-carousel grid grid-cols-2 gap-5 md:gap-8 md:grid-cols-3">
           {blogs?.slice(0, 6).map((ele:any) => (
-            <BlogEntry key={ele?.id} {...ele?.attributes} />
+            <BlogEntry key={ele?.id} {...ele?.attributes} id={ele?.id} />
           ))}
         </div>
       </div>

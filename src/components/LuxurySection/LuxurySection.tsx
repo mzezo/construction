@@ -94,10 +94,10 @@ function LuxurySection() {
         <Swiper
           className="container h-full"
           modules={[Autoplay, Navigation]}
-          autoplay={{
-            delay: 5000,
-            disableOnInteraction: false,
-          }}
+          // autoplay={{
+          //   delay: 5000,
+          //   disableOnInteraction: false,
+          // }}
         >
           {projects?.map((project: any) => (
             <SwiperSlide

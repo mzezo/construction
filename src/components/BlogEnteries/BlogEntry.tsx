@@ -1,4 +1,6 @@
-function BlogEntry({ name, description, href, image, date }: { name: string, description: string, href: string, image: any, date: string }) {
+import Link from "next/link"
+
+function BlogEntry({ name, description, id, image, date }: { name: string, description: string, id: string, image: any, date: string }) {
   return (
     <div className="item">
       <div className="blog-post blog-grid style1">
@@ -8,11 +10,11 @@ function BlogEntry({ name, description, href, image, date }: { name: string, des
         <div className="dlab-post-text">
           <div className="dlab-post-title">
             <h4 className="post-title font-weight-600">
-              <a href={href}>{name}</a>
+            <Link href={`/blogs/${id}`}><a>{name}</a></Link>
             </h4>
           </div>
 
-          <p className="">
+          <p className="line-clamp-2">
             {description}
           </p>
           <div className="dlab-post-meta">
