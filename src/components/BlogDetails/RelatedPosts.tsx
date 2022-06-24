@@ -1,5 +1,5 @@
-import BlogEntry from "../BlogEnteries/BlogEntry"
-import data from "../BlogItem/fakeData.json"
+// import BlogEntry from "../BlogEnteries/BlogEntry"
+// import data from "../BlogItem/fakeData.json"
 
 function RelatedPosts() {
   return (
