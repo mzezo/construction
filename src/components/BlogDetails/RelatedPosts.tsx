@@ -8,11 +8,11 @@ function RelatedPosts() {
         <h3 className="m-b10">Related Post</h3>
         <div className="dlab-separator bg-black"></div>
       </div>
-      <div className="related-post grid grid-cols-2 gap-5">
+      {/* <div className="related-post grid grid-cols-2 gap-5">
         {data.slice(0, 2).map((ele, index) => (
           <BlogEntry key={index} {...ele} />
         ))}
-      </div>
+      </div> */}
     </div>
   )
 }
