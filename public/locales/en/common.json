@@ -5,5 +5,48 @@
   "latest-project": "Our latest project",
   "client": "Client:",
   "completion": "Completion:",
-  "project-type": "Project Type:"
+  "project-type": "Project Type:",
+  "architects": "Architects:",
+
+  "name": "Name",
+  "business-services-consulting": "Business services consulting",
+  "email": "Email",
+  "phone": "Phone",
+  "send-to-us": "Send to us",
+
+  "design-projects": "Design projects",
+  "years-experience": "years experience",
+  "view-details": "View details",
+
+  "product-design": "Product design",
+  "architecture": "Architecture",
+  "interior-design": "Interior design",
+  "enrollment": "Enrollment",
+  "foundations": "Foundations",
+  "accreditation": "Accreditation",
+  "i-have-worked": "I have worked with many companies offering supplemental industrial services, and out of all those companies",
+
+  "home": "Home",
+  "about-me": "About me",
+  "services": "Services",
+  "company-history": "Company history",
+  "price-table": "Price table",
+  "layout": "Layout",
+  "pages": "Pages",
+  "blog": "Blog",
+  "contact-us": "Contact us",
+  "language": "Language",
+  "architecure-is-a-visual-art": "Architecure is a visual art",
+  "random-paragraph": "Praesent pharetra orci odio, ut mattis tellus ullamcorper ornare. Suspendisse ullamcorper metus in erat viverra, vehicula pharetra dolor accumsan. In arcu ex, rutrum finibus malesuada vel. Praesent pharetra orci odio, ut mattis tellus",
+
+  "years": "years",
+  "experience": "experience",
+  "working": "working",
+
+  "The Luxury Residence In Forest": "The Luxury Residence In Forest",
+
+  "the-principle": "the principle of the design - the harmony, rhythm and balance are all the same with interior and fashion design",
+  "modern": "modern",
+  "smart": "smart",
+  "creative": "creative"
 }

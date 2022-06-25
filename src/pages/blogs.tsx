@@ -1,18 +1,20 @@
 import BlogItem from "@/components/BlogItem/BlogItem"
 import { getData } from "@/services/getData"
+import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 
 function BlogGrid() {
+  const [blogs, setBlogs] = useState<any>([])
 
-  const [blogs, setBlogs] = useState<any>([]);
-
+  const router = useRouter()
+  const { locale } = router
 
   useEffect(() => {
-    getData('/blogs?populate=*').then((data) => { 
+    getData(`/blogs?populate=*&locale=${locale}`).then((data) => {
       setBlogs(data?.data?.data)
     })
   }, [])
-  
+
   return (
     <div className="content-block">
       <div className="section-full content-inner">

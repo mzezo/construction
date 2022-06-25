@@ -1,20 +1,24 @@
-import { motion, useAnimation } from "framer-motion";
-import React, { useEffect } from "react";
-import { useInView } from "react-intersection-observer";
-import { fadeInUp } from "src/utils/Motion/FadeInUp";
+import { motion, useAnimation } from "framer-motion"
+import { useTranslation } from "next-i18next"
+import { useRouter } from "next/router"
+import React, { useEffect } from "react"
+import { useInView } from "react-intersection-observer"
+import { fadeInUp } from "src/utils/Motion/FadeInUp"
 const ContactForm = () => {
+  const controls = useAnimation()
+  const [ref, inView] = useInView()
 
-  const controls = useAnimation();
-  const [ref, inView] = useInView();
+  const { t } = useTranslation("common")
 
- 
+  const router = useRouter()
+  const { locale } = router
+  console.log(locale)
 
   useEffect(() => {
     if (inView) {
-      controls.start("visible");
+      controls.start("visible")
     }
-  }, [controls, inView]);
-
+  }, [controls, inView])
 
   return (
     <>
@@ -30,15 +34,10 @@ const ContactForm = () => {
                 data-wow-delay="0.4s"
                 data-wow-duration="2s"
               >
-                <h3 className="title">
-                  <strong>The principle of the</strong> design - the{" "}
-                  <strong>harmony, rhythm and </strong> balance{" "}
-                  <strong>are all the same with </strong> interior and fashion
-                  design.
-                </h3>
+                <h3 className="title">{t("the-principle")}</h3>
                 <span className="sign">
-                  <img src="/images/sign-2.png" alt="" /> Creative. Modern.
-                  Smart.
+                  <img src="/images/sign-2.png" alt="" />
+                  {t("creative")}. {t("modern")}. {t("smart")}.
                 </span>
               </div>
               <motion.div
@@ -48,7 +47,9 @@ const ContactForm = () => {
                 variants={fadeInUp(1)}
                 className="col-lg-6 wow fadeInUp"
               >
-                <div className="form-img">
+                <div
+                  className={`form-img ${locale === "ar" && "-left-[120px]"}`}
+                >
                   <img src="/images/laptop.png" alt="" />
                 </div>
               </motion.div>
@@ -65,7 +66,7 @@ const ContactForm = () => {
                     type="text"
                     required
                     className="form-control"
-                    placeholder="Name"
+                    placeholder={t("name")}
                   />
                 </div>
               </div>
@@ -80,7 +81,7 @@ const ContactForm = () => {
                     type="text"
                     required
                     className="form-control"
-                    placeholder="Business services consulting"
+                    placeholder={t("business-services-consulting")}
                   />
                 </div>
               </div>
@@ -95,7 +96,7 @@ const ContactForm = () => {
                     type="email"
                     className="form-control"
                     required
-                    placeholder="Email"
+                    placeholder={t("email")}
                   />
                 </div>
               </div>
@@ -110,7 +111,7 @@ const ContactForm = () => {
                     type="text"
                     required
                     className="form-control"
-                    placeholder="Phone"
+                    placeholder={t("phone")}
                   />
                 </div>
               </div>
@@ -125,7 +126,7 @@ const ContactForm = () => {
                   value="Submit"
                   className="btn btn-lg radius-xl black"
                 >
-                  Send to us
+                  {t("send-to-us")}
                 </button>
               </div>
             </form>
@@ -133,7 +134,7 @@ const ContactForm = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default ContactForm;
+export default ContactForm

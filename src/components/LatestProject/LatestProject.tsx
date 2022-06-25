@@ -48,8 +48,8 @@ const ContactForm = () => {
   return (
     <>
       {/* TODO: fix the container issue */}
-      <div className="flex flex-col md:flex-row md:h-screen items-center bg-white">
-        <div className="h-full w-full md:w-1/2 shrink-0 bg-[#ebebeb] flex items-center relative">
+      <div className="container block md:flex md:h-screen items-center bg-white gap-5">
+        <div className="md:h-full md:w-1/2 shrink-0 bg-[#ebebeb] md:flex items-center relative">
           <Swiper
             spaceBetween={20}
             slidesPerView={1.4}
@@ -60,8 +60,7 @@ const ContactForm = () => {
             modules={[Navigation]}
             effect={"flip"}
             pagination={{ clickable: true }}
-            className="mySwiper absolute w-[110%]"
-            style={{ position: "absolute", width: "106%" }}
+            className={`mySwiper md:custom w-full local-0 ${locale === "ar" ? "md:right-10" : "md:left-10"}`}
           >
             <div className="w-full md:w-[53vw] h-[350px] -mr-20 md:h-[70%] flex items-center overflow-hidden">
               {latestProject?.attributes?.images?.data?.map((item: any) => (
@@ -83,7 +82,7 @@ const ContactForm = () => {
         </div>
         {/* </motion.div> */}
 
-        <div className="md:w-1/2 w-full p-5">
+        <div className="md:w-1/2 w-full h-full p-5">
           <motion.div
             ref={ref}
             animate={controls}
@@ -104,9 +103,9 @@ const ContactForm = () => {
                     <strong>{t("client")}</strong>
                     <span>{latestProject?.attributes?.client}</span>
                   </li>
-                  <li>
-                    <strong>{t("completion")}</strong>
-                    <span>{latestProject?.attributes?.date}</span>
+                  <li className="space-x-5">
+                    <strong className="ml-3">{t("completion")}</strong>
+                    <div>{latestProject?.attributes?.date}</div>
                   </li>
                   <li>
                     <strong>{t("project-type")}</strong>

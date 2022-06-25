@@ -1,14 +1,18 @@
-import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useTranslation } from "next-i18next"
+import { useRouter } from "next/router"
+import { useState } from "react"
 
-import SidenavDropdown from './SidenavDropdown';
+import SidenavDropdown from "./SidenavDropdown"
 
 const Navbar = () => {
-  const [showSidenav, setShowSidenav] = useState(false);
+  const [showSidenav, setShowSidenav] = useState(false)
 
-  const toggle = () => setShowSidenav(!showSidenav);
-  const router = useRouter();
-	const { asPath } = router;
+  const { t } = useTranslation("common")
+
+
+  const toggle = () => setShowSidenav(!showSidenav)
+  const router = useRouter()
+  const { asPath, locale } = router
 
   return (
     <header className="site-header mo-left header-full header style1">
@@ -71,9 +75,13 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+
+      {/* sidenav */}
       <div
-        className={`header-nav navbar-collapse collapse full-sidenav content-scroll ${
-          showSidenav && 'active'
+        className={`${
+          locale === "ar" && "sidenav__custom"
+        } capitalize header-nav navbar-collapse collapse full-sidenav content-scroll left-0 ${
+          showSidenav && "active"
         }`}
       >
         <div className="logo-header">
@@ -83,48 +91,50 @@ const Navbar = () => {
         </div>
         <ul className="nav navbar-nav">
           <SidenavDropdown
-            text="Layout"
-            links={[{ text: 'Home', href: '#' }]}
+            text={t("layout")}
+            links={[{ text: t("home"), href: "#" }]}
           />
 
           <SidenavDropdown
-            text="Pages"
+            text={t("pages")}
             links={[
-              { text: 'About me', href: '#' },
-              { text: 'Services', href: '#' },
-              { text: 'Compnay history', href: '#' },
-              { text: 'Price table', href: '#' },
+              { text: t("about-me"), href: "#" },
+              { text: t("services"), href: "#" },
+              { text: t("company-history"), href: "#" },
+              { text: t("price-table"), href: "#" },
             ]}
           />
 
           <SidenavDropdown
-            text="blog"
-            links={[{ text: 'About me', href: '#' }]}
+            text={t("blog")}
+            links={[{ text: t("about-me"), href: "#" }]}
           />
 
-          {/* <SidenavDropdown
-            text="Portfolio"
-            links={[{ text: 'About me', href: '#' }]}
-          /> */}
-
           <SidenavDropdown
-            text="Contact Us"
-            links={[{ text: 'About me', href: '#' }]}
+            text={t("contact-us")}
+            links={[{ text: t("about-me"), href: "#" }]}
           />
           <SidenavDropdown
-            text="Language"
+            text={t("language")}
             handleCloseNav={toggle}
-            links={[{ 
-              text: 'en',
-              href: '#',
-              onClick: () => router.push(asPath, undefined, {
-              locale: 'en',
-            })},
-            { text: 'ar',
-              href: '#',
-              onClick: () => router.push(asPath, undefined, {
-                locale: 'ar',
-            })},]}
+            links={[
+              {
+                text: "en",
+                href: "#",
+                onClick: () =>
+                  router.push(asPath, undefined, {
+                    locale: "en",
+                  }),
+              },
+              {
+                text: "ar",
+                href: "#",
+                onClick: () =>
+                  router.push(asPath, undefined, {
+                    locale: "ar",
+                  }),
+              },
+            ]}
           />
         </ul>
         <div className="social-menu">
@@ -153,11 +163,11 @@ const Navbar = () => {
           <p className="copyright-head">© 2020 Archia</p>
         </div>
       </div>
-      <div className={`menu-close ${showSidenav && 'active'}`} onClick={toggle}>
+      <div className={`menu-close ${locale === "ar" && "menu-close__custom"} ${showSidenav && "active"}`} onClick={toggle}>
         <i className="ti-close"></i>
       </div>
     </header>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

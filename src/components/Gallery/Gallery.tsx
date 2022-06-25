@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import GalleryImage from "./GalleryImage"
 import { getData } from '../../services/getData';
 import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 
 function Gallery() {
   const [category, setCategory] = useState('');
@@ -11,6 +12,9 @@ function Gallery() {
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 	const { locale } = router;
+
+  const { t } = useTranslation("common")
+
 
   useEffect(() => {
     getData(`/projects?populate=*&locale=${locale}`).then((data) => { 
@@ -40,8 +44,8 @@ function Gallery() {
     <div className="section-full bg-white content-inner-2" id="projects">
       <div className="container">
         <div className="section-head text-center">
-          <h2 className="head-title m-b10">Design Projects</h2>
-          <p>19+ years’ experience</p>
+          <h2 className="head-title m-b10">{t("design-projects")}</h2>
+          <p>19+ {t("years-experience")}</p>
         </div>
         <div className="row">
           <div className="col-lg-12 text-center">
