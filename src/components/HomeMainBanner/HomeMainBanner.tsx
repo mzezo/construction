@@ -1,35 +1,36 @@
-import { useState, useEffect } from "react";
-import { SwiperSlide } from "swiper/react";
-import Carousel from "../UI/Carousel";
-import { getData } from "../../services/getData";
-import { motion } from "framer-motion";
-import { useSwiper } from 'swiper/react';
-import { useRouter } from "next/router";
-import { useTranslation } from "next-i18next";
+import { useState, useEffect } from "react"
+import { SwiperSlide } from "swiper/react"
+import Carousel from "../UI/Carousel"
+import { getData } from "../../services/getData"
+import { motion } from "framer-motion"
+import { useSwiper } from "swiper/react"
+import { useRouter } from "next/router"
+import { useTranslation } from "next-i18next"
 
-export function fadeInOut (duration:number = 0.2) {
+export function fadeInOut(duration: number = 0.2) {
   return {
-    from: { 
+    from: {
       opacity: 0,
       y: 30,
       transition: {
         // type: 'easeInOut',
         duration: duration,
-      } 
+      },
     },
-    to: { 
+    to: {
       opacity: 1,
       y: 0,
       transition: {
         // type: 'easeInOut',
         duration: duration,
-      } 
+      },
     },
   }
 }
 
 const BannerSlide = (banner: any) => {
-  const { t } = useTranslation("common");
+  const { t } = useTranslation("common")
+  
   return (
     <div className="h-[520px] bg-[#121a2d] w-full">
       <div
@@ -40,9 +41,9 @@ const BannerSlide = (banner: any) => {
       >
         <motion.div
           layout
-					initial="from"
-					animate="to"
-					exit="from"
+          initial="from"
+          animate="to"
+          exit="from"
           variants={fadeInOut(0.8)}
         >
           <div className="flex flex-col items-start p-20">
@@ -60,69 +61,84 @@ const BannerSlide = (banner: any) => {
               href={banner?.url}
               className="btn-banner btn button-lg black radius-xl btn-aware outline outline-2"
             >
-              {t("view-portfolio")}<span></span>
+              {t("view-portfolio")}
+              <span></span>
             </a>
           </div>
         </motion.div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 export function SlideNextButton() {
-  const swiper = useSwiper();
-  const { t } = useTranslation("common");
-  const router = useRouter();
-	const { locale } = router;
+  const swiper = useSwiper()
+  const { t } = useTranslation("common")
+  const router = useRouter()
+  const { locale } = router
 
   return (
-    <button className="text-white px-4 font-bold uppercase" onClick={() => swiper.slideNext()}>
+    <button
+      className="text-white px-4 font-bold uppercase"
+      onClick={() => swiper.slideNext()}
+    >
       {t("next")}
-      { locale === 'ar' ? <i className="fas fa-long-arrow-alt-left px-2 opacity-50"></i>   : <i className="fas fa-long-arrow-alt-right px-2 opacity-50"></i>  }
+      {locale === "ar" ? (
+        <i className="fas fa-long-arrow-alt-left px-2 opacity-50"></i>
+      ) : (
+        <i className="fas fa-long-arrow-alt-right px-2 opacity-50"></i>
+      )}
     </button>
-  );
+  )
 }
 
 export function SlidePrevButton() {
-  const swiper = useSwiper();
-  const { t } = useTranslation("common"); 
-  const router = useRouter();
-	const { locale } = router;
+  const swiper = useSwiper()
+  const { t } = useTranslation("common")
+  const router = useRouter()
+  const { locale } = router
 
   return (
-    <button  className="text-white px-4 font-bold uppercase" onClick={() => swiper.slidePrev()}>
-      { locale === 'ar' ?  <i className="fas fa-long-arrow-alt-right px-2 opacity-50"></i> : <i className="fas fa-long-arrow-alt-left px-2 opacity-50"></i>   }
+    <button
+      className="text-white px-4 font-bold uppercase"
+      onClick={() => swiper.slidePrev()}
+    >
+      {locale === "ar" ? (
+        <i className="fas fa-long-arrow-alt-right px-2 opacity-50"></i>
+      ) : (
+        <i className="fas fa-long-arrow-alt-left px-2 opacity-50"></i>
+      )}
       {t("prev")}
     </button>
-  );
+  )
 }
 
 const HomeMainBanner = () => {
-  const [homeBanners, setHomeBanners] = useState<any>([]);
-  const [loading, setLoading] = useState(true);
+  const [homeBanners, setHomeBanners] = useState<any>([])
+  const [loading, setLoading] = useState(true)
 
-  const router = useRouter();
-	const { locale } = router;
-
+  const router = useRouter()
+  const { locale } = router
 
   useEffect(() => {
     getData(`/home-banners?populate=*&locale=${locale}`).then((data) => {
-      setHomeBanners(data?.data);
-      setLoading(false);
-    });
-  }, [locale]);
+      setHomeBanners(data?.data)
+      setLoading(false)
+    })
+  }, [locale])
 
-  if (loading)  return (
-    <div className="h-[520px] bg-[#121a2d] w-full">
-      <div
-        className="bg-cover bg-no-repeat bg-center w-full h-full"
-        style={{
-          backgroundImage: `url('images/background/bg1.jpg')`,
-          filter: `blur(8px)`
-        }}
-      />
-    </div>
-  )
+  if (loading)
+    return (
+      <div className="h-[520px] bg-[#121a2d] w-full">
+        <div
+          className="bg-cover bg-no-repeat bg-center w-full h-full"
+          style={{
+            backgroundImage: `url('images/background/bg1.jpg')`,
+            filter: `blur(8px)`,
+          }}
+        />
+      </div>
+    )
 
   return (
     <div className="bg-[#121a2d] w-full h-[590px]">
@@ -138,7 +154,7 @@ const HomeMainBanner = () => {
         </div>
       </Carousel>
     </div>
-  );
-};
+  )
+}
 
-export default HomeMainBanner;
+export default HomeMainBanner

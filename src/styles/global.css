@@ -2,8 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+.custom {
+  position: absolute !important;
+}
+
 .comment-form *::placeholder {
   @apply text-gray-600 !important;
+}
+
+.sidenav__custom.active {
+  right: calc(100% - 300px) !important;
+}
+
+.menu-close__custom i {
+  right: calc(100% - 360px) !important; 
 }
 
 .content p {

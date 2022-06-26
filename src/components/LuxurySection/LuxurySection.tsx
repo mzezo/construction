@@ -1,14 +1,15 @@
-import { getData } from "@/services/getData";
-import { useEffect, useState } from "react";
-import { Autoplay, Navigation } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-const qs = require("qs");
-import { useSwiper } from "swiper/react";
+import { getData } from "@/services/getData"
+import { useEffect, useState } from "react"
+import { Autoplay, Navigation } from "swiper"
+import { Swiper, SwiperSlide } from "swiper/react"
+const qs = require("qs")
+import { useSwiper } from "swiper/react"
 
-import "swiper/css/navigation";
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
+import "swiper/css/navigation"
+import "swiper/css"
+import "swiper/css/pagination"
+import "swiper/css/scrollbar"
+import { useTranslation } from "next-i18next"
 
 const query = qs.stringify(
   {
@@ -22,39 +23,49 @@ const query = qs.stringify(
   {
     encodeValuesOnly: true,
   }
-);
+)
 
 export function SlideNextButton() {
-  const swiper = useSwiper();
+  const swiper = useSwiper()
+  const { t } = useTranslation("common")
 
   return (
-    <button className="text-white px-4 font-bold uppercase" onClick={() => swiper.slideNext()}>
-       next
-       <i className="fas fa-long-arrow-alt-right px-2 opacity-50"></i>
+    <button
+      className="text-white px-4 font-bold uppercase"
+      onClick={() => swiper.slideNext()}
+    >
+      {t("next")}
+      <i className="fas fa-long-arrow-alt-right px-2 opacity-50"></i>
     </button>
-  );
+  )
 }
 
 export function SlidePrevButton() {
-  const swiper = useSwiper();
+  const swiper = useSwiper()
+  const { t } = useTranslation("common")
 
   return (
-    <button  className="text-white px-4 font-bold uppercase" onClick={() => swiper.slidePrev()}>
+    <button
+      className="text-white px-4 font-bold uppercase"
+      onClick={() => swiper.slidePrev()}
+    >
       <i className="fas fa-long-arrow-alt-left px-2 opacity-50"></i>
-       prev
+      {t("prev")}
     </button>
-  );
+  )
 }
 
 function LuxurySection() {
-  const [projects, setProjects] = useState<any>([]);
+  const [projects, setProjects] = useState<any>([])
   // const swiper = useSwiper();
+
+  const { t } = useTranslation("common")
 
   useEffect(() => {
     getData(`/projects?${query}`).then((data) => {
-      setProjects(data?.data?.data);
-    });
-  }, []);
+      setProjects(data?.data?.data)
+    })
+  }, [])
 
   return (
     <div
@@ -67,24 +78,22 @@ function LuxurySection() {
       <div className="container">
         <div className="pt-20">
           <h2 className="head-title text-5xl">
-            The Luxury Residence In Forest
+            {t("The Luxury Residence In Forest")}
           </h2>
           <p className="font-normal text-black">
-            Meh synth Schlitz, tempor duis single-origin coffee ea next level
-            ethnic fingerstache fanny pack nostrud. Photo booth anim 8-bit
-            hella,{" "}
+            {t("random-paragraph").substring(0, 100)}
           </p>
           <a
             href="contact-us-1.html"
             className="btn btn-lg radius-xl black m-r10 m-b10"
           >
-            Contact Us
+            {t("contact-us")}
           </a>
           <a
             href="portfolio-2.html"
             className="btn btn-lg radius-xl black m-b10"
           >
-            View Portfolio
+            {t("view-portfolio")}
           </a>
         </div>
       </div>
@@ -117,21 +126,21 @@ function LuxurySection() {
               <div className="bg-white w-1/2 p-10">
                 <ul className="list-details">
                   <li>
-                    <strong>Clients:</strong>
+                    <strong>{t("client")}</strong>
                     <span>{project?.attributes?.client}</span>
                   </li>
                   <li>
-                    <strong>Completion:</strong>
+                    <strong>{t("completion")}</strong>
                     <span>{project?.attributes?.date}</span>
                   </li>
                   <li>
-                    <strong>Project Type:</strong>
+                    <strong>{t("project-type")}</strong>
                     <span>
                       {project?.attributes?.category?.data?.attributes?.name}
                     </span>
                   </li>
                   <li>
-                    <strong>Architects:</strong>
+                    <strong>{t("architects")}</strong>
                     <span>Logan Cee</span>
                   </li>
                   <li>
@@ -139,7 +148,8 @@ function LuxurySection() {
                       href="portfolio-2.html"
                       className="btn outline outline-2 button-lg black m-t10 radius-xl btn-aware"
                     >
-                      View Portfolio<span></span>
+                      {t("view-portfolio")}
+                      <span></span>
                     </a>
                   </li>
                 </ul>
@@ -149,7 +159,7 @@ function LuxurySection() {
         </Swiper>
       </div>
     </div>
-  );
+  )
 }
 
-export default LuxurySection;
+export default LuxurySection

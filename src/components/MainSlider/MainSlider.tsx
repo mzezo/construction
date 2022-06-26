@@ -1,17 +1,20 @@
-import React, { useEffect } from "react";
-import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import { fadeInUp } from "src/utils/Motion/FadeInUp";
+import React, { useEffect } from "react"
+import { motion, useAnimation } from "framer-motion"
+import { useInView } from "react-intersection-observer"
+import { fadeInUp } from "src/utils/Motion/FadeInUp"
+import { useTranslation } from "next-i18next"
 
 const MainSlider = () => {
-  const controls = useAnimation();
-  const [ref, inView] = useInView();
+  const controls = useAnimation()
+  const [ref, inView] = useInView()
+
+  const { t } = useTranslation("common")
 
   useEffect(() => {
     if (inView) {
-      controls.start("visible");
+      controls.start("visible")
     }
-  }, [controls, inView]);
+  }, [controls, inView])
 
   return (
     <motion.div
@@ -49,35 +52,29 @@ const MainSlider = () => {
                   data-wow-duration="2s"
                 >
                   <div className="about-bx1-content">
-                    <div className="about-year">
+                    <div className="about-year capitalize">
                       <span>26</span>
                       <p>
-                        Years
+                        {t("years")}
                         <br />
-                        Experience
+                        {t("experience")}
                         <br />
-                        Working
+                        {t("working")}
                       </p>
                     </div>
-                    <h2>Architecure is a visual art, and The Building</h2>
-                    <p>
-                      Praesent pharetra orci odio, ut mattis tellus ullamcorper
-                      ornare. Suspendisse ullamcorper metus in erat viverra,
-                      vehicula pharetra dolor accumsan. In arcu ex, rutrum
-                      finibus malesuada vel. Praesent pharetra orci odio, ut
-                      mattis tellus
-                    </p>
+                    <h2>{t("architecure-is-a-visual-art")}</h2>
+                    <p>{t("random-paragraph")}</p>
                     <a
                       href="film-strip.html"
                       className="btn outline outline-2 button-lg black radius-xl btn-aware m-r10 m-b10"
                     >
-                      View Portfolio<span></span>
+                      {t("view-portfolio")}<span></span>
                     </a>
                     <a
                       href="company-history.html"
                       className="btn outline outline-2 button-lg black radius-xl btn-aware m-b10"
                     >
-                      Company History<span></span>
+                      {t("company-history")}<span></span>
                     </a>
                   </div>
                 </div>
@@ -87,7 +84,7 @@ const MainSlider = () => {
         </div>
       </div>
     </motion.div>
-  );
-};
+  )
+}
 
-export default MainSlider;
+export default MainSlider

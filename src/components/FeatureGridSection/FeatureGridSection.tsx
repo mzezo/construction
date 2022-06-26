@@ -1,4 +1,8 @@
+import { useTranslation } from "next-i18next"
+
 function FeatureGridSection() {
+  const { t } = useTranslation("common")
+
   return (
     <div className="section-full bg-white content-inner-2">
       <div className="container">
@@ -15,10 +19,9 @@ function FeatureGridSection() {
                 </a>
               </div>
               <div className="icon-content">
-                <h4 className="dlab-tilte">Interior design</h4>
+                <h4 className="dlab-tilte">{t("interior-design")}</h4>
                 <p>
-                  I have worked with many companies offering supplemental
-                  industrial services, and out of all those companies{" "}
+                  <p>{t("i-have-worked")}</p>
                 </p>
               </div>
             </div>
@@ -35,11 +38,8 @@ function FeatureGridSection() {
                 </a>
               </div>
               <div className="icon-content">
-                <h4 className="dlab-tilte">Architecture</h4>
-                <p>
-                  I have worked with many companies offering supplemental
-                  industrial services, and out of all those companies{" "}
-                </p>
+                <h4 className="dlab-tilte">{t("architecture")}</h4>
+                <p>{t("i-have-worked")}</p>
               </div>
             </div>
           </div>
@@ -55,11 +55,8 @@ function FeatureGridSection() {
                 </a>
               </div>
               <div className="icon-content">
-                <h4 className="dlab-tilte">Product design</h4>
-                <p>
-                  I have worked with many companies offering supplemental
-                  industrial services, and out of all those companies{" "}
-                </p>
+                <h4 className="dlab-tilte">{t("product-design")}</h4>
+                <p>{t("i-have-worked")}</p>
               </div>
             </div>
           </div>
@@ -75,11 +72,8 @@ function FeatureGridSection() {
                 </a>
               </div>
               <div className="icon-content">
-                <h4 className="dlab-tilte">Accreditation</h4>
-                <p>
-                  I have worked with many companies offering supplemental
-                  industrial services, and out of all those companies{" "}
-                </p>
+                <h4 className="dlab-tilte">{t("accreditation")}</h4>
+                <p>{t("i-have-worked")}</p>
               </div>
             </div>
           </div>
@@ -95,11 +89,8 @@ function FeatureGridSection() {
                 </a>
               </div>
               <div className="icon-content">
-                <h4 className="dlab-tilte">Foundations</h4>
-                <p>
-                  I have worked with many companies offering supplemental
-                  industrial services, and out of all those companies{" "}
-                </p>
+                <h4 className="dlab-tilte">{t("foundations")}</h4>
+                <p>{t("i-have-worked")}</p>
               </div>
             </div>
           </div>
@@ -115,11 +106,8 @@ function FeatureGridSection() {
                 </a>
               </div>
               <div className="icon-content">
-                <h4 className="dlab-tilte">Enrollment</h4>
-                <p>
-                  I have worked with many companies offering supplemental
-                  industrial services, and out of all those companies{" "}
-                </p>
+                <h4 className="dlab-tilte">{t("enrollment")}</h4>
+                <p>{t("i-have-worked")}</p>
               </div>
             </div>
           </div>
