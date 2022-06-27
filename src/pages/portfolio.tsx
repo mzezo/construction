@@ -61,7 +61,7 @@ function Portfolio() {
               id="masonry"
               className="dlab-gallery-listing gallery mfp-gallery text-center portfolio-bx  container grid grid-cols-2 md:grid-cols-4"
             >
-              {data.filter(ele => ele.category.match(category)).map((ele, index) => (
+              {data.map((ele, index) => (
                 <PortfolioCard key={index} {...ele} />
               ))}
             </ul>
