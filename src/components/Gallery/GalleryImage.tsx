@@ -1,11 +1,12 @@
 import { motion, useAnimation } from "framer-motion"
 import { useTranslation } from "next-i18next"
 import Image from "next/image"
+import Link from "next/link"
 import { useEffect } from "react"
 import { useInView } from "react-intersection-observer"
 import { fadeInUp } from "src/utils/Motion/FadeInUp"
 
-function GalleryImage({ name, image, category }: any) {
+function GalleryImage({ id, name, image, category }: any) {
   const controls = useAnimation()
   const [ref, inView] = useInView()
 
@@ -53,9 +54,11 @@ function GalleryImage({ name, image, category }: any) {
               </h3>
             </div>
             <div className="port-down">
-              <a href={"#"} className="btn-link">
-                {t("view-details")} <i className="la la-arrow-right"></i>
-              </a>
+              <Link href={`/projects/${id}`}>
+                <a className="btn-link">
+                  {t("view-details")} <i className="la la-arrow-right"></i>
+                </a>
+              </Link>
             </div>
           </div>
         </div>

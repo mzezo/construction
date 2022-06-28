@@ -1,3 +1,6 @@
+import { GetStaticProps } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
 function AboutMe() {
   return (
     <div className="page-content bg-white">
@@ -380,3 +383,13 @@ function AboutMe() {
 }
 
 export default AboutMe
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+	return {
+		props: {
+			...(await serverSideTranslations(locale!, [
+				"common"
+			])),
+		},
+	};
+};

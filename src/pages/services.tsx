@@ -1,4 +1,6 @@
 import ContactUsBlock from "@/components/ContactUsBlock/ContactUsBlock"
+import { GetStaticProps } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 function Services() {
   return (
@@ -43,7 +45,6 @@ function Services() {
           </div>
         </div>
         <div className="section-full">
-          {/* TODO: create the slider */}
           <div className="portfolio-carousel flex">
             <div className="item">
               <div className="dlab-box portfolio-bx style2">
@@ -179,3 +180,13 @@ function Services() {
 }
 
 export default Services
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+	return {
+		props: {
+			...(await serverSideTranslations(locale!, [
+				"common"
+			])),
+		},
+	};
+};

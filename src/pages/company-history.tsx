@@ -1,4 +1,6 @@
 import FadeInAnimate from "@/components/UI/FadeInAnimate"
+import { GetStaticProps } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 function CompanyHistory() {
   return (
@@ -109,3 +111,13 @@ function CompanyHistory() {
 }
 
 export default CompanyHistory
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+	return {
+		props: {
+			...(await serverSideTranslations(locale!, [
+				"common"
+			])),
+		},
+	};
+};

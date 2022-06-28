@@ -1,5 +1,7 @@
 import BlogItem from "@/components/BlogItem/BlogItem"
 import { getData } from "@/services/getData"
+import { GetStaticProps } from "next"
+import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 
@@ -48,3 +50,13 @@ function BlogGrid() {
 }
 
 export default BlogGrid
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+	return {
+		props: {
+			...(await serverSideTranslations(locale!, [
+				"common"
+			])),
+		},
+	};
+};

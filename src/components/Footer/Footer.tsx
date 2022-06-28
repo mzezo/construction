@@ -1,230 +1,11 @@
+import { useTranslation } from "next-i18next"
+
 function Footer() {
+  const { t } = useTranslation("common")
+
   return (
     <>
-      <div className="section-full bg-white content-inner-2">
-        <div className="container">
-          <div className="flex flex-wrap">
-            {/* <div className="item">
-              <div
-                className="client-logo-inner wow zoomIn"
-                data-wow-delay="0.4s"
-                data-wow-duration="1s"
-              >
-                <img alt="" src="/images/logo/logo2.jpg" />
-              </div>
-            </div>
-            <div className="item">
-              <div
-                className="client-logo-inner wow zoomIn"
-                data-wow-delay="0.6s"
-                data-wow-duration="1s"
-              >
-                <img alt="" src="/images/logo/logo3.jpg" />
-              </div>
-            </div>
-            <div className="item">
-              <div
-                className="client-logo-inner wow zoomIn"
-                data-wow-delay="0.8s"
-                data-wow-duration="1s"
-              >
-                <img alt="" src="/images/logo/logo4.jpg" />
-              </div>
-            </div>
-            <div className="item">
-              <div
-                className="client-logo-inner wow zoomIn"
-                data-wow-delay="0.10s"
-                data-wow-duration="1s"
-              >
-                <img alt="" src="/images/logo/logo5.jpg" />
-              </div>
-            </div>
-            <div className="item">
-              <div
-                className="client-logo-inner wow zoomIn"
-                data-wow-delay="0.12s"
-                data-wow-duration="1s"
-              >
-                <img alt="" src="/images/logo/logo6.jpg" />
-              </div>
-            </div> */}
-          </div>
-        </div>
-      </div>
-
-      <footer className="site-footer archi-footer">
-        <div className="footer-gallery owl-carousel owl-none mfp-gallery-with-owl">
-          <div className="item">
-            {/* TODO fix the footer issue */}
-            <div className="dlab-box dlab-gallery-box overlay-gallery-bx1">
-              <div className="dlab-thum dlab-img-overlay1 primary">
-                <a href="javascript:void(0);">
-                  {" "}
-                  <img src="/images/gallery/gallery-4/pic1.jpg" alt="" />{" "}
-                </a>
-                <div className="overlay-bx">
-                  <div className="overlay-icon">
-                    <a
-                      href="https://www.youtube.com/watch?v=Dj6CKxQue7U"
-                      className="popup-youtube video"
-                    >
-                      <i className="fas fa-play icon-bx-xs"></i>
-                    </a>
-                    <a
-                      href="images/gallery/gallery-4/full-pic1.jpg"
-                      className="mfp-link"
-                      title="Title Come Here"
-                    >
-                      {" "}
-                      <i className="fas fa-search icon-bx-xs"></i>{" "}
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="item">
-            <div className="dlab-box dlab-gallery-box overlay-gallery-bx1">
-              <div className="dlab-thum dlab-img-overlay1 primary">
-                <a href="javascript:void(0);">
-                  {" "}
-                  <img src="/images/gallery/gallery-4/pic2.jpg" alt="" />{" "}
-                </a>
-                <div className="overlay-bx">
-                  <div className="overlay-icon">
-                    <a
-                      href="https://www.youtube.com/watch?v=Dj6CKxQue7U"
-                      className="popup-youtube video"
-                    >
-                      <i className="fas fa-play icon-bx-xs"></i>
-                    </a>
-                    <a
-                      href="images/gallery/gallery-4/full-pic2.jpg"
-                      className="mfp-link"
-                      title="Title Come Here"
-                    >
-                      {" "}
-                      <i className="fas fa-search icon-bx-xs"></i>{" "}
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="item">
-            <div className="dlab-box dlab-gallery-box overlay-gallery-bx1">
-              <div className="dlab-thum dlab-img-overlay1 primary">
-                <a href="javascript:void(0);">
-                  {" "}
-                  <img src="/images/gallery/gallery-4/pic3.jpg" alt="" />{" "}
-                </a>
-                <div className="overlay-bx">
-                  <div className="overlay-icon">
-                    <a
-                      href="https://www.youtube.com/watch?v=Dj6CKxQue7U"
-                      className="popup-youtube video"
-                    >
-                      <i className="fas fa-play icon-bx-xs"></i>
-                    </a>
-                    <a
-                      href="images/gallery/gallery-4/full-pic3.jpg"
-                      className="mfp-link"
-                      title="Title Come Here"
-                    >
-                      {" "}
-                      <i className="fas fa-search icon-bx-xs"></i>{" "}
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="item">
-            <div className="dlab-box dlab-gallery-box overlay-gallery-bx1">
-              <div className="dlab-thum dlab-img-overlay1 primary">
-                <a href="javascript:void(0);">
-                  {" "}
-                  <img src="/images/gallery/gallery-4/pic4.jpg" alt="" />{" "}
-                </a>
-                <div className="overlay-bx">
-                  <div className="overlay-icon">
-                    <a
-                      href="https://www.youtube.com/watch?v=Dj6CKxQue7U"
-                      className="popup-youtube video"
-                    >
-                      <i className="fas fa-play icon-bx-xs"></i>
-                    </a>
-                    <a
-                      href="images/gallery/gallery-4/full-pic4.jpg"
-                      className="mfp-link"
-                      title="Title Come Here"
-                    >
-                      {" "}
-                      <i className="fas fa-search icon-bx-xs"></i>{" "}
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="item">
-            <div className="dlab-box dlab-gallery-box overlay-gallery-bx1">
-              <div className="dlab-thum dlab-img-overlay1 primary">
-                <a href="javascript:void(0);">
-                  {" "}
-                  <img src="/images/gallery/gallery-4/pic1.jpg" alt="" />{" "}
-                </a>
-                <div className="overlay-bx">
-                  <div className="overlay-icon">
-                    <a
-                      href="https://www.youtube.com/watch?v=Dj6CKxQue7U"
-                      className="popup-youtube video"
-                    >
-                      <i className="fas fa-play icon-bx-xs"></i>
-                    </a>
-                    <a
-                      href="images/gallery/gallery-4/full-pic1.jpg"
-                      className="mfp-link"
-                      title="Title Come Here"
-                    >
-                      {" "}
-                      <i className="fas fa-search icon-bx-xs"></i>{" "}
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="item">
-            <div className="dlab-box dlab-gallery-box overlay-gallery-bx1">
-              <div className="dlab-thum dlab-img-overlay1 primary">
-                <a href="javascript:void(0);">
-                  {" "}
-                  <img src="/images/gallery/gallery-4/pic2.jpg" alt="" />{" "}
-                </a>
-                <div className="overlay-bx">
-                  <div className="overlay-icon">
-                    <a
-                      href="https://www.youtube.com/watch?v=Dj6CKxQue7U"
-                      className="popup-youtube video"
-                    >
-                      <i className="fas fa-play icon-bx-xs"></i>
-                    </a>
-                    <a
-                      href="images/gallery/gallery-4/full-pic2.jpg"
-                      className="mfp-link"
-                      title="Title Come Here"
-                    >
-                      {" "}
-                      <i className="fas fa-search icon-bx-xs"></i>{" "}
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <footer className="site-footer archi-footer mt-10">
         <div
           className="footer-top"
           style={{
@@ -242,13 +23,15 @@ function Footer() {
               </div>
               <div className="col-xl-3 col-lg-4 col-md-4">
                 <div className="widget widget-info">
-                  <h6 className="title text-primary text-uppercase">Call us</h6>
+                  <h6 className="title text-primary text-uppercase">
+                    {t("call-us")}
+                  </h6>
                   <p>
-                    <span className="font-weight-600">Phone:</span> +1 564
-                    345-750-421
+                    <span className="font-weight-600">{t("phone")}:</span> +1
+                    564 345-750-421
                   </p>
                   <p>
-                    <span className="font-weight-600">Fax:</span> +1 564
+                    <span className="font-weight-600">{t("fax")}:</span> +1 564
                     354-755-432
                   </p>
                 </div>
@@ -256,7 +39,7 @@ function Footer() {
               <div className="col-xl-3 col-lg-4 col-md-4">
                 <div className="widget widget-info">
                   <h6 className="title text-primary text-uppercase">
-                    Write us
+                    {t("contact-us")}
                   </h6>
                   <p>support@youremail.com</p>
                   <p>info@example.com</p>
@@ -265,7 +48,7 @@ function Footer() {
               <div className="col-xl-3 col-lg-4 col-md-4">
                 <div className="widget widget-info">
                   <h6 className="title text-primary text-uppercase">
-                    Our address
+                    {t("our-address")}
                   </h6>
                   <p>
                     PO Box 16122 Collins Street West Victoria 8007 Australia

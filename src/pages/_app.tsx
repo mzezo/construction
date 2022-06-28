@@ -29,9 +29,8 @@ import { useEffect } from "react"
 import { appWithTranslation } from "next-i18next";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
-  const { pathname } = useRouter()
-  const router = useRouter();
-	const dir = getDirection(router.locale);
+  const { pathname, locale } = useRouter()
+	const dir = getDirection(locale);
 
 	useEffect(() => {
     console.log("getDirection", dir)

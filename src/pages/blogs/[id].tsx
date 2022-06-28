@@ -3,6 +3,8 @@ import BlogLayoutContainer from "@/components/BlogDetails/BlogLayoutContainer"
 // import CommentSection from "@/components/BlogDetails/CommentSection"
 // import RelatedPosts from "@/components/BlogDetails/RelatedPosts"
 import { getData } from "@/services/getData"
+import { GetStaticProps } from "next"
+import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 
@@ -31,3 +33,13 @@ function BlogDetailsPage() {
 }
 
 export default BlogDetailsPage
+
+// export const getStaticProps: GetStaticProps = async ({ locale }) => {
+// 	return {
+// 		props: {
+// 			...(await serverSideTranslations(locale!, [
+// 				"common"
+// 			])),
+// 		},
+// 	};
+// };

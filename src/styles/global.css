@@ -25,3 +25,8 @@
 .content ul {
   @apply my-6;
 }
+
+.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+}

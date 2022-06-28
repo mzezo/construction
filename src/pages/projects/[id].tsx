@@ -3,9 +3,11 @@ import FadeInAnimate from "@/components/UI/FadeInAnimate"
 import { getData } from "@/services/getData"
 import { useTranslation } from "next-i18next"
 import { useRouter } from "next/router"
+import ReactMarkdown from "react-markdown"
+import { serverSideTranslations } from "next-i18next/serverSideTranslations"
+import { GetStaticProps } from "next"
 
 function Project({ projectData }: any) {
-
   const { t } = useTranslation("common")
 
   return (
@@ -15,20 +17,10 @@ function Project({ projectData }: any) {
           <div className="col-lg-5 m-b30">
             <div className="section-head style1">
               <p className="pre-title">YEAR {projectData.date.split("-")[0]}</p>
-              <h2>
-                {projectData.name}
-              </h2>
+              <h2>{projectData.name}</h2>
             </div>
             <p className="m-b30">
-              Meh synth Schlitz, tempor duis single-origin coffee ea next level
-              ethnic fingerstache fanny pack nostrud. Photo booth anim 8-bit
-              hella, PBR 3 wolf moon beard Helvetica. Salvia esse nihil,
-              flexitarian Truffaut synth art party deep v chillwave. Seitan High
-              Life reprehenderit consectetur cupidatat kogi. Et leggings fanny
-              pack.
-            </p>
-            <p className="m-b30">
-              {projectData.description}
+              <ReactMarkdown children={projectData.description} />
             </p>
             <a
               href="https://www.youtube.com/watch?v=Dj6CKxQue7U"
@@ -109,19 +101,23 @@ function Project({ projectData }: any) {
 }
 
 function ProjectDetails() {
-  const [projects, setProjects] = useState<any>([])
+  const [project, setProject] = useState<any>({})
 
   const { t } = useTranslation("common")
 
   const router = useRouter()
-  const { locale } = router
+  const {
+    locale,
+    query: { id },
+  } = router
 
   useEffect(() => {
-    getData(`/projects?populate=*&locale=${locale}`).then((data) => {
-      setProjects(data?.data?.data)
-      console.log(projects)
-    })
-  }, [])
+    if (id) {
+      getData(`/projects/${id}?populate=*&locale=${locale}`)
+        .then((data) => setProject(data?.data?.data))
+        .catch(() => router.push("/"))
+    }
+  }, [id])
 
   return (
     <div className="page-content">
@@ -238,11 +234,20 @@ function ProjectDetails() {
         </div>
       </div>
 
-      {projects.map((ele: any, index: number) => (
-        <Project key={index} projectData={ele.attributes}  />
-      ))}
+      {project?.attributes && <Project projectData={project.attributes} />}
     </div>
   )
 }
 
 export default ProjectDetails
+
+
+// export const getStaticProps: GetStaticProps = async ({ locale }) => {
+// 	return {
+// 		props: {
+// 			...(await serverSideTranslations(locale!, [
+// 				"common"
+// 			])),
+// 		},
+// 	};
+// };
