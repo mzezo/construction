@@ -4,8 +4,8 @@ import { getData } from "@/services/getData"
 import { useTranslation } from "next-i18next"
 import { useRouter } from "next/router"
 import ReactMarkdown from "react-markdown"
-import { serverSideTranslations } from "next-i18next/serverSideTranslations"
-import { GetStaticProps } from "next"
+// import { serverSideTranslations } from "next-i18next/serverSideTranslations"
+// import { GetStaticProps } from "next"
 
 function Project({ projectData }: any) {
   const { t } = useTranslation("common")
@@ -103,7 +103,7 @@ function Project({ projectData }: any) {
 function ProjectDetails() {
   const [project, setProject] = useState<any>({})
 
-  const { t } = useTranslation("common")
+  // const { t } = useTranslation("common")
 
   const router = useRouter()
   const {
