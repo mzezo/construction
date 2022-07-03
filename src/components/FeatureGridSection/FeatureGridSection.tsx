@@ -21,7 +21,7 @@ function FeatureGridSection() {
               <div className="icon-content">
                 <h4 className="dlab-tilte">{t("interior-design")}</h4>
                 <p>
-                  <p>{t("i-have-worked")}</p>
+                  <span>{t("i-have-worked")}</span>
                 </p>
               </div>
             </div>

@@ -1,11 +1,12 @@
-import { useState, useEffect } from "react"
+// import { useState, useEffect } from "react"
 import { SwiperSlide } from "swiper/react"
 import Carousel from "../UI/Carousel"
-import { getData } from "../../services/getData"
+// import { getData } from "../../services/getData"
 import { motion } from "framer-motion"
 import { useSwiper } from "swiper/react"
 import { useRouter } from "next/router"
 import { useTranslation } from "next-i18next"
+import { useHomeBannersQuery } from "@/services/getHomeBanners";
 
 export function fadeInOut(duration: number = 0.2) {
   return {
@@ -114,27 +115,28 @@ export function SlidePrevButton() {
 }
 
 const HomeMainBanner = () => {
-  const [homeBanners, setHomeBanners] = useState<any>([])
-  const [loading, setLoading] = useState(true)
+  // const [homeBanners, setHomeBanners] = useState<any>([])
+  // const [loading, setLoading] = useState(true)
 
   const router = useRouter()
   const { locale } = router
+  const { data: homeBanners, isLoading } = useHomeBannersQuery({}, locale!);
 
-  useEffect(() => {
-    getData(`/home-banners?populate=*&locale=${locale}`).then((data) => {
-      setHomeBanners(data?.data)
-      setLoading(false)
-    })
-  }, [locale])
+  // useEffect(() => {
+  //   getData(`/home-banners?populate=*&locale=${locale}`).then((data) => {
+  //     setHomeBanners(data?.data)
+  //     setLoading(false)
+  //   })
+  // }, [locale])
 
-  if (loading)
+  if (isLoading)
     return (
       <div className="h-[520px] bg-[#121a2d] w-full">
         <div
           className="bg-cover bg-no-repeat bg-center w-full h-full"
           style={{
             backgroundImage: `url('images/background/bg1.jpg')`,
-            filter: `blur(8px)`,
+            filter: `blur(6px)`,
           }}
         />
       </div>
@@ -143,7 +145,7 @@ const HomeMainBanner = () => {
   return (
     <div className="bg-[#121a2d] w-full h-[590px]">
       <Carousel>
-        {homeBanners?.data?.map((item: any) => (
+        {homeBanners?.map((item: any) => (
           <SwiperSlide>
             <BannerSlide key={item?.id} {...item?.attributes} />
           </SwiperSlide>
