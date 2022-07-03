@@ -3,7 +3,6 @@ import Image from "next/image"
 
 function PortfolioCard({
   name,
-  tag,
   image,
   date,
 }: {

@@ -31,6 +31,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { Hydrate } from "react-query/hydration";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
+ 
   const queryClientRef = useRef<any>();
   if (!queryClientRef.current) {
     queryClientRef.current = new QueryClient();

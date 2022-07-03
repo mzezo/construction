@@ -1,46 +1,64 @@
+import { NAV_LINKS } from "@/constants"
+import { useTranslation } from "next-i18next"
+import Link from "next/link"
 import { useRouter } from "next/router"
+import { useEffect, useState } from "react"
 
-// TODO: ul arrow problem
-// TODO: nav responsive issue
 function NoSidenav({ pathname }: { pathname: string }) {
+  const [navActive, setNavActive] = useState(false)
 
-  const router = useRouter()
+  const getTitle = () => pathname.split("-").join(" ").replace("/", "")
 
-  console.log(router)
+  const { locale } = useRouter()
 
-  const getTitle = () => pathname.split("-").join(' ').replace('/', '')
+  const { t } = useTranslation()
+
+  const parseTranslationText = (text: string) =>
+    t(text.toLowerCase().split(" ").join("-"))
+
+  useEffect(() => {
+    if (navActive) document.querySelector("body")?.classList.add("no-scroll")
+    else document.querySelector("body")?.classList.remove("no-scroll")
+    window.scrollTo({ top: 0, behavior: "smooth" })
+  }, [navActive])
 
   return (
     <>
-      <header className="site-header header header-transparent header-archia mo-left">
+      <header
+        className="site-header header header-transparent header-archia mo-left"
+        dir="ltr"
+      >
         <div className="sticky-header main-bar-wraper navbar-expand-lg">
           <div className="main-bar clearfix">
             <div className="container">
+              {/* logo */}
               <div className="logo-header mostion">
-                <a href="index.html">
-                  <img className="logo" src="/images/logo-white.png" alt="" />
-                </a>
+                <Link href="/">
+                  <a>
+                    <img className="logo" src="/images/logo-white.png" alt="" />
+                  </a>
+                </Link>
               </div>
+
+              {/* responsive nav button */}
               <button
+                onClick={() => setNavActive(!navActive)}
                 className="navbar-toggler collapsed navicon justify-content-end"
                 type="button"
-                data-toggle="collapse"
-                data-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
               >
                 <span></span>
                 <span></span>
                 <span></span>
               </button>
+
+              {/* phone number */}
               <div className="extra-nav">
                 <div className="extra-cell">
                   <ul>
                     <li>
                       <div className="contact-info">
                         <i className="fas fa-phone-alt"></i>
-                        <span>Phone</span>
+                        <span>{t("Phone")}</span>
                         <h4 className="m-b0">003 746 87 92</h4>
                       </div>
                     </li>
@@ -56,6 +74,8 @@ function NoSidenav({ pathname }: { pathname: string }) {
                   </ul>
                 </div>
               </div>
+
+              {/* search icon */}
               <div className="dlab-quik-search">
                 <form action="#">
                   <input
@@ -70,258 +90,82 @@ function NoSidenav({ pathname }: { pathname: string }) {
                   </span>
                 </form>
               </div>
+
               <div
-                className="header-nav navbar-collapse collapse justify-content-end mo-nav"
+                className="header-nav navbar-collapse collapse justify-content-end mo-nav hidden md:block"
                 id="navbarNavDropdown"
               >
                 <div className="logo-header">
-                  <a href="index.html">
-                    <img src="/images/logo.png" alt="" />
-                  </a>
+                  <Link href="/">
+                    <a>
+                      <img src="/images/logo.png" alt="" />
+                    </a>
+                  </Link>
                 </div>
+
                 <ul className="nav navbar-nav">
-                  <li className="active">
-                    <a href="#">
-                      Layouts <i className="fas fa-chevron-down"></i>
-                    </a>
-                    <ul className="sub-menu">
-                      <li>
-                        <a href="index.html" className="dez-page">
-                          Home 01
+                  {NAV_LINKS.map((ele, index) => (
+                    <li>
+                      <Link key={index} href={!ele.links ? ele.href : "#"}>
+                        <a>
+                          {parseTranslationText(ele.text)} {ele.links && ">"}
+                          {/* TODO: ADD ICON */}
                         </a>
-                      </li>
-                      <li>
-                        <a href="index-dark.html" className="dez-page">
-                          Home Dark 01
-                        </a>
-                      </li>
-                      <li>
-                        <a href="index-2.html" className="dez-page">
-                          Home 02
-                        </a>
-                      </li>
-                      <li>
-                        <a href="index-dark-2.html" className="dez-page">
-                          Home Dark 02
-                        </a>
-                      </li>
-                      <li>
-                        <a href="index-3.html" className="dez-page">
-                          Home 03
-                        </a>
-                      </li>
-                      <li>
-                        <a href="index-dark-3.html" className="dez-page">
-                          Home Dark 03
-                        </a>
-                      </li>
-                      <li>
-                        <a href="index-4.html" className="dez-page">
-                          Home 04
-                        </a>
-                      </li>
-                      <li>
-                        <a href="index-dark-4.html" className="dez-page">
-                          Home Dark 04
-                        </a>
-                      </li>
-                      <li>
-                        <a href="index-5.html" className="dez-page">
-                          Home 05
-                        </a>
-                      </li>
-                      <li>
-                        <a href="index-dark-5.html" className="dez-page">
-                          Home Dark 05
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Pages <i className="fas fa-chevron-down"></i>
-                    </a>
-                    <ul className="sub-menu">
-                      <li>
-                        <a href="about-me.html" className="dez-page">
-                          About Me
-                        </a>
-                      </li>
-                      <li>
-                        <a href="about-us-1.html" className="dez-page">
-                          About Us 01
-                        </a>
-                      </li>
-                      <li>
-                        <a href="about-us-2.html" className="dez-page">
-                          About Us 02
-                        </a>
-                      </li>
-                      <li>
-                        <a href="services.html" className="dez-page">
-                          Services
-                        </a>
-                      </li>
-                      <li>
-                        <a href="company-exhibition.html" className="dez-page">
-                          Company Exhibition
-                        </a>
-                      </li>
-                      <li>
-                        <a href="company-history.html" className="dez-page">
-                          Company History
-                        </a>
-                      </li>
-                      <li>
-                        <a href="price-table.html" className="dez-page">
-                          Price Table
-                        </a>
-                      </li>
-                      <li>
-                        <a href="coming-soon.html" className="dez-page">
-                          Coming Soon
-                        </a>
-                      </li>
-                      <li>
-                        <a href="404-page.html" className="dez-page">
-                          404 Page
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Blog <i className="fas fa-chevron-down"></i>
-                    </a>
-                    <ul className="sub-menu">
-                      <li>
-                        <a href="blog-grid.html" className="dez-page">
-                          Blog Grid
-                        </a>
-                      </li>
-                      <li>
-                        <a href="blog-list.html" className="dez-page">
-                          Blog Listing
-                        </a>
-                      </li>
-                      <li>
-                        <a href="blog-masonry.html" className="dez-page">
-                          Blog Masonry
-                        </a>
-                      </li>
-                      <li>
-                        <a href="blog-details.html" className="dez-page">
-                          Blog Details
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Portfolio <i className="fas fa-chevron-down"></i>
-                    </a>
-                    <ul className="sub-menu">
-                      <li>
-                        <a href="portfolio-1.html" className="dez-page">
-                          Portfolio Masonary
-                        </a>
-                      </li>
-                      <li>
-                        <a href="portfolio-2.html" className="dez-page">
-                          Portfolio Tiles Filter
-                        </a>
-                      </li>
-                      <li>
-                        <a href="carousel-showcase.html" className="dez-page">
-                          Portfolio Owl Showcase
-                        </a>
-                      </li>
-                      <li>
-                        <a href="film-strip.html" className="dez-page">
-                          Portfolio Flim Strip
-                        </a>
-                      </li>
-                      <li>
-                        <a href="split-slider.html" className="dez-page">
-                          Portfolio Split Slider
-                        </a>
-                      </li>
-                      <li>
-                        <a href="split-slider-dark.html" className="dez-page">
-                          Portfolio Split Slider Dark
-                        </a>
-                      </li>
-                      <li>
-                        <a href="project-detail-1.html" className="dez-page">
-                          Project Detail 01
-                        </a>
-                      </li>
-                      <li>
-                        <a href="project-detail-2.html" className="dez-page">
-                          Project Detail 02
-                        </a>
-                      </li>
-                      <li>
-                        <a href="project-detail-3.html" className="dez-page">
-                          Project Detail 03
-                        </a>
-                      </li>
-                      <li>
-                        <a href="project-detail-4.html" className="dez-page">
-                          Project Detail 04
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a href="#">
-                      Contact Us <i className="fas fa-chevron-down"></i>
-                    </a>
-                    <ul className="sub-menu">
-                      <li>
-                        <a href="contact-us-1.html" className="dez-page">
-                          Contact Us 01
-                        </a>
-                      </li>
-                      <li>
-                        <a href="contact-us-2.html" className="dez-page">
-                          Contact Us 02
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
+                      </Link>
+
+                      {ele.links && (
+                        <ul className="sub-menu">
+                          {ele?.links?.map((childLink, index) => (
+                            <li key={index}>
+                              <Link href={childLink.href}>
+                                <a className="dez-page">
+                                  {parseTranslationText(childLink.text)}
+                                </a>
+                              </Link>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </li>
+                  ))}
+
                 </ul>
-                <div className="social-menu">
-                  <ul>
-                    <li>
-                      <a href="javascript:void(0);">
-                        <i className="fab fa-facebook-f"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="javascript:void(0);">
-                        <i className="fab fa-twitter"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="javascript:void(0);">
-                        <i className="fab fa-google-plus-g"></i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="javascript:void(0);">
-                        <i className="fab fa-facebook-f"></i>
-                      </a>
-                    </li>
-                  </ul>
-                  <p className="copyright-head">© 2022 Archia</p>
-                </div>
+              </div>
+
+              <div
+                dir={locale === "ar" ? "rtl" : "ltr"}
+                className={`fixed w-full ${
+                  locale === "ar" && "text-right"
+                } transition-all duration-300 top-[80px] bg-white flex flex-col h-full md:hidden ${
+                  navActive ? "left-0" : "-left-full"
+                }`}
+              >
+                {NAV_LINKS.map((ele, index) => (
+                  <Link key={index} href={!ele.links ? ele.href : "#"}>
+                    <a
+                      className="group w-full px-6 py-4 hover:bg-gray-200 text-xl text-black"
+                      onClick={() => setNavActive(false)}
+                    >
+                      <span>
+                        {parseTranslationText(ele.text)} {ele.links && ">"}
+                      </span>
+                      {ele.links && (
+                        <div className="hidden group-hover:flex flex-col pl-3 mt-3 space-y-3">
+                          {ele?.links?.map((childLink, index) => (
+                            <Link key={index} href={childLink.href}>
+                              <a>{parseTranslationText(childLink.text)}</a>
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </a>
+                  </Link>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </header>
-
 
       <div
         className="dlab-bnr-inr dlab-bnr-inr-lg overlay-primary-middle bg-pt"
@@ -329,17 +173,21 @@ function NoSidenav({ pathname }: { pathname: string }) {
       >
         <div className="container">
           <div className="dlab-bnr-inr-entry">
-            <h1 className="text-white capitalize">{getTitle()}</h1>
-            <p>Stay informed on our news or events!</p>
-            <div className="breadcrumb-row">
+            <h1 className="text-white capitalize">
+              {t(getTitle().toLowerCase().split(" ").join("-"))}
+            </h1>
+            <p>{t("stay-informed")}</p>
+            <div className="breadcrumb-row" dir="ltr">
               <ul className="list-inline">
                 <li>
-                  <a href="index.html">
-                    <i className="fas fa-home"></i>
-                  </a>
+                  <Link href="/">
+                    <a>
+                      <i className="fas fa-home"></i>
+                    </a>
+                  </Link>
                 </li>
-                <li>Pages</li>
-                <li>{getTitle()}</li>
+                <li>{t("pages")}</li>
+                <li>{t(getTitle().toLowerCase().split(" ").join("-"))}</li>
               </ul>
             </div>
           </div>

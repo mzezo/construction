@@ -1,4 +1,5 @@
 import { useTranslation } from "next-i18next"
+import Link from "next/link"
 import { useRouter } from "next/router"
 import { useState } from "react"
 
@@ -8,7 +9,6 @@ const Navbar = () => {
   const [showSidenav, setShowSidenav] = useState(false)
 
   const { t } = useTranslation("common")
-
 
   const toggle = () => setShowSidenav(!showSidenav)
   const router = useRouter()
@@ -21,9 +21,11 @@ const Navbar = () => {
           <div className="container-fluid">
             <div className="header-content-bx w-full flex justify-between">
               <div className="logo-header">
-                <a href="index.html">
-                  <img src="/images/logo-white.png" alt="" />
-                </a>
+                <Link href="/">
+                  <a>
+                    <img src="/images/logo-white.png" alt="" />
+                  </a>
+                </Link>
               </div>
               <div className="extra-nav">
                 <div className="extra-cell">
@@ -85,9 +87,11 @@ const Navbar = () => {
         }`}
       >
         <div className="logo-header">
-          <a href="index.html">
-            <img src="/images/logo.png" alt="" />
-          </a>
+          <Link href="/">
+            <a>
+              <img src="/images/logo.png" alt="" />
+            </a>
+          </Link>
         </div>
         <ul className="nav navbar-nav">
           <SidenavDropdown
@@ -163,7 +167,12 @@ const Navbar = () => {
           <p className="copyright-head">© 2020 Archia</p>
         </div>
       </div>
-      <div className={`menu-close ${locale === "ar" && "menu-close__custom"} ${showSidenav && "active"}`} onClick={toggle}>
+      <div
+        className={`menu-close ${locale === "ar" && "menu-close__custom"} ${
+          showSidenav && "active"
+        }`}
+        onClick={toggle}
+      >
         <i className="ti-close"></i>
       </div>
     </header>

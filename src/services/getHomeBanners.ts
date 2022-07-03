@@ -10,7 +10,7 @@ export const fetchHomeBanners = async ({ queryKey }: any, locale: string) => {
 };
 export const useHomeBannersQuery = (options: any, locale: string) => {
 	return useQuery<any[], Error>(
-		['HomeBanners', locale],
+		['HomeBanners',options, locale],
 		(data) => fetchHomeBanners(data, locale)
 	);
 };

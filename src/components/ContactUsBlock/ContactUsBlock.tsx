@@ -1,4 +1,8 @@
+import { useTranslation } from "next-i18next"
+
 function ContactUsBlock() {
+  const { t } = useTranslation("common")
+
   return (
     <div className="section-full content-inner-2 contact-box">
       <div className="container">
@@ -11,9 +15,10 @@ function ContactUsBlock() {
                 </a>
               </div>
               <div className="icon-content">
-                <h4 className="dlab-tilte m-b5">Phone</h4>
+                <h4 className="dlab-tilte m-b5">{t("phone")}</h4>
                 <p>
-                  Phone 01:(+032) 3456 7890 <br /> Phone 02: (+032) 3427 7670
+                  {t("phone")} 01:(+032) 3456 7890 <br /> {t("phone")} 02:
+                  (+032) 3427 7670
                 </p>
               </div>
             </div>
@@ -27,7 +32,7 @@ function ContactUsBlock() {
               </div>
 
               <div className="icon-content">
-                <h4 className="dlab-tilte m-b5">Address</h4>
+                <h4 className="dlab-tilte m-b5">{t("our-address")}</h4>
                 <p>Spring Store London Oxford Street, 012 United Kingdom</p>
               </div>
             </div>
@@ -40,7 +45,7 @@ function ContactUsBlock() {
                 </a>
               </div>
               <div className="icon-content">
-                <h4 className="dlab-tilte m-b5">Email</h4>
+                <h4 className="dlab-tilte m-b5">{t("email")}</h4>
                 <p>
                   Supportstore@msimple.net <br /> Info@Simplenet.net
                 </p>
@@ -50,11 +55,8 @@ function ContactUsBlock() {
         </div>
 
         <div className="section-head text-center">
-          <h2 className="m-b5">Get in touch with us</h2>
-          <p>
-            Meh synth Schlitz, tempor duis single-origin coffee ea next level
-            ethnic fingerstache fanny pack nostrud. Photo booth anim 8
-          </p>
+          <h2 className="m-b5">{t("get-in-touch-with-us")}</h2>
+          <p>{t("random-paragraph")}</p>
         </div>
         <div className="dzFormMsg"></div>
         <form method="post" className="dzForm" action="script/contact.php">
@@ -67,7 +69,7 @@ function ContactUsBlock() {
                   type="text"
                   required
                   className="form-control"
-                  placeholder="Enter your name"
+                  placeholder={t("name")}
                 />
               </div>
             </div>
@@ -78,7 +80,7 @@ function ContactUsBlock() {
                   type="email"
                   className="form-control"
                   required
-                  placeholder="Your Email Address"
+                  placeholder={t("email")}
                 />
               </div>
             </div>
@@ -89,7 +91,7 @@ function ContactUsBlock() {
                   type="text"
                   required
                   className="form-control"
-                  placeholder="Phone"
+                  placeholder={t("phone")}
                 />
               </div>
             </div>
@@ -100,7 +102,7 @@ function ContactUsBlock() {
                   rows={4}
                   className="form-control"
                   required
-                  placeholder="Your message here"
+                  placeholder={t("your-message-here")}
                 ></textarea>
               </div>
             </div>
@@ -127,7 +129,7 @@ function ContactUsBlock() {
                 value="Submit"
                 className="btn radius-xl btn-lg outline outline-2 black btn-aware"
               >
-                Send Message<span></span>
+                {t("send-message")}<span></span>
               </button>
             </div>
           </div>
