@@ -8,7 +8,7 @@ import FeatureGridSection from "@/components/FeatureGridSection/FeatureGridSecti
 // import Testimonials from "@/components/Testimonials/Testimonials"
 import BlogEnteries from "@/components/BlogEnteries/BlogEnteries"
 import LatestProject from "@/components/LatestProject/LatestProject"
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 import { GetStaticProps } from "next"
 
 const Index = () => {
@@ -28,14 +28,12 @@ const Index = () => {
   )
 }
 
-export default Index;
+export default Index
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
-	return {
-		props: {
-			...(await serverSideTranslations(locale!, [
-				"common"
-			])),
-		},
-	};
-};
+  return {
+    props: {
+      ...(await serverSideTranslations(locale!, ["common"])),
+    },
+  }
+}

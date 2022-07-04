@@ -8,4 +8,8 @@ export const NAV_LINKS = [
   { text: "Blog", href: "/blogs" },
   { text: "Portfolio", href: "/projects" },
   { text: "Contact Us", href: "/contact-us" },
+  // { text: "Language", href: "/", links: [
+  //   { text: "En", href: "/" },
+  //   { text: "Ar", href: "/ar" },
+  // ] },
 ]

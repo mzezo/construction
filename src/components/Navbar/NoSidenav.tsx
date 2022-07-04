@@ -4,10 +4,8 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 
-function NoSidenav({ pathname }: { pathname: string }) {
+function NoSidenav({ title }: any) {
   const [navActive, setNavActive] = useState(false)
-
-  const getTitle = () => pathname.split("-").join(" ").replace("/", "")
 
   const { locale } = useRouter()
 
@@ -108,8 +106,10 @@ function NoSidenav({ pathname }: { pathname: string }) {
                     <li>
                       <Link key={index} href={!ele.links ? ele.href : "#"}>
                         <a>
-                          {parseTranslationText(ele.text)} {ele.links && ">"}
-                          {/* TODO: ADD ICON */}
+                          {parseTranslationText(ele.text)}
+                          {ele.links && (
+                            <i className="ml-2 fa fa-chevron-down"></i>
+                          )}
                         </a>
                       </Link>
 
@@ -128,7 +128,6 @@ function NoSidenav({ pathname }: { pathname: string }) {
                       )}
                     </li>
                   ))}
-
                 </ul>
               </div>
 
@@ -147,7 +146,10 @@ function NoSidenav({ pathname }: { pathname: string }) {
                       onClick={() => setNavActive(false)}
                     >
                       <span>
-                        {parseTranslationText(ele.text)} {ele.links && ">"}
+                        {parseTranslationText(ele.text)}
+                        {ele.links && (
+                          <i className="ml-2 text-sm fa fa-chevron-down"></i>
+                        )}
                       </span>
                       {ele.links && (
                         <div className="hidden group-hover:flex flex-col pl-3 mt-3 space-y-3">
@@ -174,7 +176,7 @@ function NoSidenav({ pathname }: { pathname: string }) {
         <div className="container">
           <div className="dlab-bnr-inr-entry">
             <h1 className="text-white capitalize">
-              {t(getTitle().toLowerCase().split(" ").join("-"))}
+              {title}
             </h1>
             <p>{t("stay-informed")}</p>
             <div className="breadcrumb-row" dir="ltr">
@@ -187,7 +189,7 @@ function NoSidenav({ pathname }: { pathname: string }) {
                   </Link>
                 </li>
                 <li>{t("pages")}</li>
-                <li>{t(getTitle().toLowerCase().split(" ").join("-"))}</li>
+                <li>{title}</li>
               </ul>
             </div>
           </div>

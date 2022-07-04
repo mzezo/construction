@@ -42,7 +42,7 @@ function SidenavDropdown({ links, text, handleCloseNav }: { links: Link[]; text:
           initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: 100 }}
-          className="space-y-5 pl-10"
+          className="space-y-5 px-10"
         >
           {links.map((link, index) => (
             <li key={index} onClick={() => handleItemClicked(link?.text)}>
