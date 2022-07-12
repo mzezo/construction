@@ -1,13 +1,33 @@
 import Gallery from "@/components/Gallery/Gallery"
 import NoSidenav from "@/components/Navbar/NoSidenav"
-import { GetStaticProps } from "next"
-import { useTranslation } from "next-i18next"
-import { serverSideTranslations } from "next-i18next/serverSideTranslations"
-import { Fragment } from "react"
 
-function Portfolio() {
+import { Fragment } from "react"
+// import PortfolioCard from "@/components/Portfolio/PortfolioCard";
+import { getData } from "@/services/getData";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { useTranslation } from "next-i18next";
+
+function ProjectsGrid() {
 
   const { t } = useTranslation("common")
+
+  // const [projects, setProjects] = useState<any>([]);
+  // const [category, setCategory] = useState("");
+  // const [categories, setCategories] = useState<any>([]);
+
+  const router = useRouter();
+  const { locale } = router;
+
+  useEffect(() => {
+    getData(`/categories?populate=*&locale=${locale}`).then((data) =>
+      // setCategories(data?.data?.data)
+    );
+
+    getData(`/projects?populate=*&locale=${locale}`).then((data) => {
+      // setProjects(data?.data?.data);
+    });
+  }, [locale]);
 
   return (
     <Fragment>
@@ -21,14 +41,4 @@ function Portfolio() {
   )
 }
 
-export default Portfolio
-
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
-	return {
-		props: {
-			...(await serverSideTranslations(locale!, [
-				"common"
-			])),
-		},
-	};
-};
+export default ProjectsGrid;

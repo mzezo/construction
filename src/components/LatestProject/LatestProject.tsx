@@ -48,7 +48,7 @@ const ContactForm = () => {
   return (
     <>
       {/* TODO: fix the container issue */}
-      <div className="container block md:flex md:h-screen items-center bg-white gap-5">
+      <div className="block md:flex md:h-screen items-center bg-white gap-5">
         <div className="md:h-full md:w-1/2 shrink-0 bg-[#ebebeb] md:flex items-center relative">
           <Swiper
             spaceBetween={20}
