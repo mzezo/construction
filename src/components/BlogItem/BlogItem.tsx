@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { motion } from 'framer-motion'
 import { fadeInUp } from "@/utils/Motion/FadeInUp";
+import Link from "next/link";
 
 interface BlogItemType {
   name: string,
@@ -12,9 +13,10 @@ interface BlogItemType {
   date: any,
   likes: any,
   comments: any,
+  id: number
 }
 
-function BlogItem({ name, description, image, date }: BlogItemType) {
+function BlogItem({ name, description, image, date, id }: BlogItemType) {
 
   const controls = useAnimation();
   const [ref, inView] = useInView();
@@ -34,9 +36,9 @@ function BlogItem({ name, description, image, date }: BlogItemType) {
     >
       <div className="blog-post blog-grid blog-rounded radius-sm shadow">
         <div className="dlab-post-media dlab-img-effect">
-          <a href="blog-details.html">
+          {/* <a href="blog-details.html"> */}
             <img src={image?.data?.attributes?.url || "/images/blog/blog/pic1.jpg"} alt="" className="h-[320px]" />
-          </a>
+          {/* </a> */}
         </div>
         <div className="dlab-info p-lr50 p-tb40">
           <div className="dlab-post-meta">
@@ -54,11 +56,13 @@ function BlogItem({ name, description, image, date }: BlogItemType) {
           </div>
           <div className="dlab-post-title">
             <h4 className="post-title truncate">
-              <a href="blog-details.html">{name}</a>
+            <Link href={`/blogs/${id}`}>
+              <a>{name}</a>
+            </Link>
             </h4>
           </div>
           <div className="dlab-post-text">
-            <p className="">
+            <p className="line-clamp-2">
               {description}
             </p>
           </div>

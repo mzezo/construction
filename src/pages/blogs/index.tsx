@@ -23,7 +23,7 @@ function BlogGrid() {
         <div className="container">
           <div className="dlab-blog-grid-3 row" id="masonry">
             {blogs.map((ele: any) => (
-              <BlogItem key={ele?.id} {...ele?.attributes} />
+              <BlogItem key={ele?.id} {...ele?.attributes} id={ele?.id} />
             ))}
           </div>
 

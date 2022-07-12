@@ -1,4 +1,4 @@
-import BlogSidebar from "./BlogSidebar"
+// import BlogSidebar from "./BlogSidebar"
 
 function BlogLayoutContainer({ children }: { children: any }) {
   return (
@@ -8,7 +8,7 @@ function BlogLayoutContainer({ children }: { children: any }) {
           <div className="row">
             <div className="col-xl-8 col-lg-7 col-md-12">{children}</div>
             <div className="col-xl-4 col-lg-5 col-md-12">
-              <BlogSidebar />
+              {/* <BlogSidebar /> */}
             </div>
           </div>
         </div>

@@ -1,26 +1,34 @@
-import { NAV_LINKS } from "@/constants"
-import { useTranslation } from "next-i18next"
-import Link from "next/link"
-import { useRouter } from "next/router"
-import { useEffect, useState } from "react"
+import { NAV_LINKS } from "@/constants";
+import { useTranslation } from "next-i18next";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import SidenavDropdown from "./SidenavDropdown";
 
 function NoSidenav({ pathname }: { pathname: string }) {
-  const [navActive, setNavActive] = useState(false)
+  const [navActive, setNavActive] = useState(false);
 
-  const getTitle = () => pathname.split("-").join(" ").replace("/", "")
+  const getTitle = () => pathname.split("-").join(" ").replace("/", "");
 
-  const { locale } = useRouter()
+  const { locale, asPath } = useRouter();
+  const router = useRouter();
 
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   const parseTranslationText = (text: string) =>
-    t(text.toLowerCase().split(" ").join("-"))
+    t(text.toLowerCase().split(" ").join("-"));
 
   useEffect(() => {
-    if (navActive) document.querySelector("body")?.classList.add("no-scroll")
-    else document.querySelector("body")?.classList.remove("no-scroll")
-    window.scrollTo({ top: 0, behavior: "smooth" })
-  }, [navActive])
+    if (navActive) document.querySelector("body")?.classList.add("no-scroll");
+    else document.querySelector("body")?.classList.remove("no-scroll");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [navActive]);
+
+  const handleLangCLicked = (lang: string) => {
+    router.push(asPath, undefined, {
+      locale: lang,
+    })
+  }
 
   return (
     <>
@@ -62,7 +70,7 @@ function NoSidenav({ pathname }: { pathname: string }) {
                         <h4 className="m-b0">003 746 87 92</h4>
                       </div>
                     </li>
-                    <li>
+                    {/* <li>
                       <a
                         id="quik-search-btn"
                         href="javascript:;"
@@ -70,7 +78,7 @@ function NoSidenav({ pathname }: { pathname: string }) {
                       >
                         <i className="fas fa-search"></i>
                       </a>
-                    </li>
+                    </li> */}
                   </ul>
                 </div>
               </div>
@@ -116,19 +124,18 @@ function NoSidenav({ pathname }: { pathname: string }) {
                       {ele.links && (
                         <ul className="sub-menu">
                           {ele?.links?.map((childLink, index) => (
-                            <li key={index}>
-                              <Link href={childLink.href}>
+                            <li key={index} onClick={() => handleLangCLicked(childLink.href)}>
+                              {/* <Link href={childLink.href}> */}
                                 <a className="dez-page">
                                   {parseTranslationText(childLink.text)}
                                 </a>
-                              </Link>
+                              {/* </Link> */} 
                             </li>
                           ))}
                         </ul>
                       )}
                     </li>
                   ))}
-
                 </ul>
               </div>
 
@@ -194,7 +201,7 @@ function NoSidenav({ pathname }: { pathname: string }) {
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default NoSidenav
+export default NoSidenav;

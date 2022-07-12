@@ -30,3 +30,11 @@
   overflow: hidden;
   height: 100vh;
 }
+
+.sidenav__custom {
+  right: 100% !important;
+}
+
+.sidenav__custom {
+  @apply text-right
+}

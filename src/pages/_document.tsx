@@ -13,7 +13,6 @@ class MyDocument extends Document {
     if (process.env.NODE_ENV !== "production") {
 			i18n!?.reloadResources(locale);
 		}
-    console.log('__NEXT_DATA__', locale)
     return (
       <Html dir={getDirection(locale)}>
         <Head>
