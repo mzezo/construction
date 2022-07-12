@@ -10,6 +10,14 @@
   @apply text-gray-600 !important;
 }
 
+.sidenav__custom {
+  right: 100% !important;
+}
+
+.sidenav__custom {
+  @apply text-right
+}
+
 .sidenav__custom.active {
   right: calc(100% - 300px) !important;
 }

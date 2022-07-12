@@ -1,3 +1,4 @@
+import { NAV_LINKS } from "@/constants"
 import { useTranslation } from "next-i18next"
 import Link from "next/link"
 import { useRouter } from "next/router"
@@ -9,6 +10,9 @@ const Navbar = () => {
   const [showSidenav, setShowSidenav] = useState(false)
 
   const { t } = useTranslation("common")
+
+  const parseTranslationText = (text: string) =>
+    t(text.toLowerCase().split(" ").join("-"))
 
   const toggle = () => setShowSidenav(!showSidenav)
   const router = useRouter()
@@ -82,7 +86,7 @@ const Navbar = () => {
       <div
         className={`${
           locale === "ar" && "sidenav__custom"
-        } capitalize header-nav navbar-collapse collapse full-sidenav content-scroll left-0 ${
+        } capitalize header-nav navbar-collapse collapse full-sidenav content-scroll overflow-x-hidden left-0 ${
           showSidenav && "active"
         }`}
       >
@@ -94,30 +98,24 @@ const Navbar = () => {
           </Link>
         </div>
         <ul className="nav navbar-nav">
-          <SidenavDropdown
-            text={t("layout")}
-            links={[{ text: t("home"), href: "#" }]}
-          />
+          {NAV_LINKS.map((ele, index) =>
+            ele.links ? (
+              <SidenavDropdown
+                key={index}
+                text={parseTranslationText(ele.text)}
+                links={ele.links.map(e => ({ ...e, text: parseTranslationText(e.text)}))}
+              />
+            ) : (
+              <Link href={ele.href}>
+                <li>
+                  <a className="transition-colors duration-200 hover:text-[#a8ca1e]">
+                    {parseTranslationText(ele.text)}
+                  </a>
+                </li>
+              </Link>
+            )
+          )}
 
-          <SidenavDropdown
-            text={t("pages")}
-            links={[
-              { text: t("about-me"), href: "#" },
-              { text: t("services"), href: "#" },
-              { text: t("company-history"), href: "#" },
-              { text: t("price-table"), href: "#" },
-            ]}
-          />
-
-          <SidenavDropdown
-            text={t("blog")}
-            links={[{ text: t("about-me"), href: "#" }]}
-          />
-
-          <SidenavDropdown
-            text={t("contact-us")}
-            links={[{ text: t("about-me"), href: "#" }]}
-          />
           <SidenavDropdown
             text={t("language")}
             handleCloseNav={toggle}
