@@ -3,9 +3,6 @@ import NoSidenav from "@/components/Navbar/NoSidenav"
 
 import { Fragment } from "react"
 // import PortfolioCard from "@/components/Portfolio/PortfolioCard";
-import { getData } from "@/services/getData";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
 import { useTranslation } from "next-i18next";
 
 function ProjectsGrid() {
@@ -15,19 +12,7 @@ function ProjectsGrid() {
   // const [projects, setProjects] = useState<any>([]);
   // const [category, setCategory] = useState("");
   // const [categories, setCategories] = useState<any>([]);
-
-  const router = useRouter();
-  const { locale } = router;
-
-  useEffect(() => {
-    getData(`/categories?populate=*&locale=${locale}`).then((data) =>
-      // setCategories(data?.data?.data)
-    );
-
-    getData(`/projects?populate=*&locale=${locale}`).then((data) => {
-      // setProjects(data?.data?.data);
-    });
-  }, [locale]);
+ 
 
   return (
     <Fragment>
