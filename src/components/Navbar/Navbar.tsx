@@ -16,7 +16,7 @@ const Navbar = () => {
 
   const toggle = () => setShowSidenav(!showSidenav)
   const router = useRouter()
-  const { asPath, locale } = router
+  const { locale } = router
 
   return (
     <header className="site-header mo-left header-full header style1">

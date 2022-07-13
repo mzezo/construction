@@ -108,7 +108,7 @@ function Project({ projectData }: any) {
 function ProjectDetails() {
   const [project, setProject] = useState<any>({})
 
-  const { t } = useTranslation("common")
+  // const { t } = useTranslation("common")
 
   const router = useRouter()
   const {
