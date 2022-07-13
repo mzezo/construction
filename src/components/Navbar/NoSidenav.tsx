@@ -3,7 +3,6 @@ import { useTranslation } from "next-i18next";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import SidenavDropdown from "./SidenavDropdown";
 
 function NoSidenav({ pathname }: { pathname: string }) {
   const [navActive, setNavActive] = useState(false);
