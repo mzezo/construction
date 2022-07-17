@@ -56,7 +56,7 @@ function Gallery({ title }: any) {
                 {categories?.data?.slice(0, 4)?.map((item: any) => (
                   <li onClick={() => setCategory(item?.attributes?.name)}>
                     <button
-                      className={`transition-colors duration-150 uppercase font-semibold tracking-widest 
+                      className={`transition-colors duration-150 uppercase font-semibold 
                           ${
                             category === item?.attributes?.name
                               ? "text-gray-500"

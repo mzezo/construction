@@ -76,7 +76,7 @@ function LuxurySection() {
       }}
     >
       <div className="container">
-        <div className="pt-20">
+        <div className="md:pt-8">
           <h2 className="head-title text-5xl">
             {t("The Luxury Residence In Forest")}
           </h2>
@@ -99,7 +99,7 @@ function LuxurySection() {
       </div>
 
       {/* TODO: create slider */}
-      <div className="w-full h-[430px] absolute -bottom-20">
+      <div className="w-full h-[430px] absolute md:-bottom-20">
         <Swiper
           className="container h-full"
           modules={[Autoplay, Navigation]}
@@ -123,7 +123,7 @@ function LuxurySection() {
                 <SlidePrevButton />
                 <SlideNextButton />
               </div>
-              <div className="bg-white w-1/2 p-10">
+              <div className="bg-white w-[90%] md:w-1/2 p-10">
                 <ul className="list-details">
                   <li>
                     <strong>{t("client")}</strong>

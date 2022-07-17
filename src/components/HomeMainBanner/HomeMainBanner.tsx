@@ -47,8 +47,8 @@ const BannerSlide = (banner: any) => {
           exit="from"
           variants={fadeInOut(0.8)}
         >
-          <div className="flex flex-col items-start p-20">
-            <h1 className="text-6xl uppercase font-thin">
+          <div className="flex flex-col items-start p-8 md:p-20">
+            <h1 className="text-2xl md:text-6xl uppercase font-thin">
               <span className="font-bold">{banner?.title}</span>
             </h1>
             <div

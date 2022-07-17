@@ -72,7 +72,7 @@ const ContactForm = () => {
                         "images/portfolio/portfolio-box2/pic1.jpg"
                       }
                       alt=""
-                      className="w-full h-[440px] bg-cover"
+                      className="w-full h-[390px] bg-cover"
                     />
                   </div>
                 </SwiperSlide>
@@ -104,10 +104,10 @@ const ContactForm = () => {
                     <span>{latestProject?.attributes?.client}</span>
                   </li>
                   <li className="space-x-5">
-                    <strong className="ml-3">{t("completion")}</strong>
+                    <strong className="">{t("completion")}</strong>
                     <div>{latestProject?.attributes?.date}</div>
                   </li>
-                  <li>
+                  <li className="space-x-5">
                     <strong>{t("project-type")}</strong>
                     <span>
                       {
@@ -118,7 +118,7 @@ const ContactForm = () => {
                   </li>
                 </ul>
               </div>
-              <div className="">
+              <div className="flex">
                 <a
                   href="https://www.youtube.com/watch?v=Dj6CKxQue7U"
                   className="popup-youtube video btn button-lg black radius-xl btn-aware btn-video btn-aware outline outline-2"
