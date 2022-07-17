@@ -51,10 +51,10 @@ const MainSlider = () => {
                   data-wow-delay="0.6s"
                   data-wow-duration="2s"
                 >
-                  <div className="about-bx1-content">
+                  <div className="about-bx1-content flex flex-col items-start">
                     <div className="about-year capitalize">
                       <span>26</span>
-                      <p>
+                      <p className="px-2">
                         {t("years")}
                         <br />
                         {t("experience")}
@@ -63,7 +63,7 @@ const MainSlider = () => {
                       </p>
                     </div>
                     <h2>{t("architecure-is-a-visual-art")}</h2>
-                    <p>{t("random-paragraph")}</p>
+                    <p style={{textAlign: 'start'}}>{t("random-paragraph")}</p>
                     <a
                       href="film-strip.html"
                       className="btn outline outline-2 button-lg black radius-xl btn-aware m-r10 m-b10"

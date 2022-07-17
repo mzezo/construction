@@ -49,7 +49,7 @@ function SidenavDropdown({ links, text, handleCloseNav }: { links: Link[]; text:
               {/* <NextLink href={link?.href}> */}
                 <span
                   // href={link.href}
-                  className="transition-colors duration-200 hover:text-[#a8ca1e] cursor-pointer"
+                  className="transition-colors duration-200 hover:text-[#a8ca1e] cursor-pointer px-8 pr-16"
                 >
                   {link.text}
                 </span>

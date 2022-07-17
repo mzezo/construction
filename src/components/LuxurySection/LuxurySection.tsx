@@ -76,25 +76,27 @@ function LuxurySection() {
       }}
     >
       <div className="container">
-        <div className="md:pt-8">
+        <div className="md:pt-8 flex flex-col items-start">
           <h2 className="head-title text-5xl">
             {t("The Luxury Residence In Forest")}
           </h2>
           <p className="font-normal text-black">
             {t("random-paragraph").substring(0, 100)}
           </p>
-          <a
-            href="contact-us-1.html"
-            className="btn btn-lg radius-xl black m-r10 m-b10"
-          >
-            {t("contact-us")}
-          </a>
-          <a
-            href="portfolio-2.html"
-            className="btn btn-lg radius-xl black m-b10"
-          >
-            {t("view-portfolio")}
-          </a>
+          <div className="flex">
+            <a
+              href="contact-us-1.html"
+              className="btn btn-lg radius-xl black m-r10 m-b10"
+            >
+              {t("contact-us")}
+            </a>
+            <a
+              href="portfolio-2.html"
+              className="btn btn-lg radius-xl black m-b10"
+            >
+              {t("view-portfolio")}
+            </a>
+          </div>
         </div>
       </div>
 
@@ -115,8 +117,9 @@ function LuxurySection() {
                 backgroundImage:
                   `url(${project?.attributes?.image?.data?.attributes?.url})` ??
                   `url(images/projects/project/img1.jpg)`,
-                // backgroundSize: "cover",
-                // backgroundPosition: "center",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat"
               }}
             >
               <div className="flex justify-end px-12 py-4 absolute bottom-0 right-0">

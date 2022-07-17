@@ -30,7 +30,9 @@ export function fadeInOut(duration: number = 0.2) {
 }
 
 const BannerSlide = (banner: any) => {
-  const { t } = useTranslation("common")
+  const { t } = useTranslation("common");
+  const router = useRouter()
+  const { locale } = router;
   
   return (
     <div className="h-[520px] bg-[#121a2d] w-full">
@@ -53,7 +55,7 @@ const BannerSlide = (banner: any) => {
             </h1>
             <div
               className="uppercase font-bold mb-3"
-              style={{ letterSpacing: 15 }}
+              style={ locale === 'en' ? {letterSpacing: 15 } : {}}
             >
               {banner?.subTitle}
             </div>

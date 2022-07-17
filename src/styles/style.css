@@ -10379,6 +10379,7 @@ ul[class*="list-"]{
 
 .icon-bx-wraper {
     position: relative;
+    text-align: start;
 }
 .icon-bx-wraper .dlab-tilte {
     margin-top: 0;

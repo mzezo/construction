@@ -98,16 +98,17 @@ const ContactForm = () => {
               <h2>{t("latest-project")} {latestProject?.attributes?.name}</h2>
               <p>{latestProject?.attributes?.description}</p>
               <div className="m-b30">
-                <ul className="list-details">
+                <ul className="list-details min-w-[180px]">
                   <li>
                     <strong>{t("client")}</strong>
                     <span>{latestProject?.attributes?.client}</span>
                   </li>
-                  <li className="space-x-5">
+                  {/* space-x-5 */}
+                  <li className=""> 
                     <strong className="">{t("completion")}</strong>
                     <div>{latestProject?.attributes?.date}</div>
                   </li>
-                  <li className="space-x-5">
+                  <li className="">
                     <strong>{t("project-type")}</strong>
                     <span>
                       {

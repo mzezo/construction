@@ -12,7 +12,7 @@ function FeatureGridSection() {
             data-wow-delay="0.2s"
             data-wow-duration="2s"
           >
-            <div className="icon-bx-wraper sr-iconbox">
+            <div className="icon-bx-wraper sr-iconbox text-start">
               <div className="icon-lg m-b20">
                 <a href="javascript:void(0)" className="icon-cell">
                   <img src="/images/icon/icon1.png" alt="" />
@@ -31,7 +31,7 @@ function FeatureGridSection() {
             data-wow-delay="0.4s"
             data-wow-duration="2s"
           >
-            <div className="icon-bx-wraper sr-iconbox">
+            <div className="icon-bx-wraper sr-iconbox text-start">
               <div className="icon-lg m-b20">
                 <a href="javascript:void(0)" className="icon-cell">
                   <img src="/images/icon/icon2.png" alt="" />
@@ -48,7 +48,7 @@ function FeatureGridSection() {
             data-wow-delay="0.6s"
             data-wow-duration="2s"
           >
-            <div className="icon-bx-wraper sr-iconbox">
+            <div className="icon-bx-wraper sr-iconbox text-start">
               <div className="icon-lg m-b20">
                 <a href="javascript:void(0)" className="icon-cell">
                   <img src="/images/icon/icon3.png" alt="" />
@@ -65,7 +65,7 @@ function FeatureGridSection() {
             data-wow-delay="0.2s"
             data-wow-duration="2s"
           >
-            <div className="icon-bx-wraper sr-iconbox">
+            <div className="icon-bx-wraper sr-iconbox text-start">
               <div className="icon-lg m-b20">
                 <a href="javascript:void(0)" className="icon-cell">
                   <img src="/images/icon/icon4.png" alt="" />
@@ -82,7 +82,7 @@ function FeatureGridSection() {
             data-wow-delay="0.4s"
             data-wow-duration="2s"
           >
-            <div className="icon-bx-wraper sr-iconbox">
+            <div className="icon-bx-wraper sr-iconbox text-start">
               <div className="icon-lg m-b20">
                 <a href="javascript:void(0)" className="icon-cell">
                   <img src="/images/icon/icon5.png" alt="" />
@@ -99,7 +99,7 @@ function FeatureGridSection() {
             data-wow-delay="0.6s"
             data-wow-duration="2s"
           >
-            <div className="icon-bx-wraper sr-iconbox">
+            <div className="icon-bx-wraper sr-iconbox text-start">
               <div className="icon-lg m-b20">
                 <a href="javascript:void(0)" className="icon-cell">
                   <img src="/images/icon/icon6.png" alt="" />
