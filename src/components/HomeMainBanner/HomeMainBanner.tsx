@@ -59,7 +59,7 @@ const BannerSlide = (banner: any) => {
             >
               {banner?.subTitle}
             </div>
-            <p className="max-w-[590px]">{banner?.description}</p>
+            <p className="max-w-[590px]" style={{textAlign: 'start'}}>{banner?.description}</p>
             <a
               href={banner?.url}
               className="btn-banner btn button-lg black radius-xl btn-aware outline outline-2"

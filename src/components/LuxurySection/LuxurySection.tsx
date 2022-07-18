@@ -76,14 +76,14 @@ function LuxurySection() {
       }}
     >
       <div className="container">
-        <div className="md:pt-8 flex flex-col items-start">
+        <div className="md:pt-8 flex flex-col items-start" style={{textAlign: 'start'}}>
           <h2 className="head-title text-5xl">
             {t("The Luxury Residence In Forest")}
           </h2>
           <p className="font-normal text-black">
             {t("random-paragraph").substring(0, 100)}
           </p>
-          <div className="flex">
+          <div className="">
             <a
               href="contact-us-1.html"
               className="btn btn-lg radius-xl black m-r10 m-b10"
