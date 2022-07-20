@@ -23,6 +23,11 @@ function SidenavDropdown({ links, text, handleCloseNav }: { links: Link[]; text:
 			locale: lang,
 		});
 
+    setTimeout(() => {
+      router.reload()
+    }, 1000)
+
+
     handleCloseNav();
 
   }
