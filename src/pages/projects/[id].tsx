@@ -4,8 +4,9 @@ import { getData } from "@/services/getData"
 import { useTranslation } from "next-i18next"
 import { useRouter } from "next/router"
 import ReactMarkdown from "react-markdown"
-// import { serverSideTranslations } from "next-i18next/serverSideTranslations"
-// import { GetStaticProps } from "next"
+import { GetStaticProps } from "next"
+import { serverSideTranslations } from "next-i18next/serverSideTranslations"
+
 
 function Project({ projectData }: any) {
   console.log('Project Data', projectData);
@@ -58,7 +59,7 @@ function Project({ projectData }: any) {
               <p className="m-b30">
                 <ReactMarkdown children={projectData.description} />
               </p>
-              <a
+              {/* <a
                 href="https://www.youtube.com/watch?v=Dj6CKxQue7U"
                 className="popup-youtube m-r20 video btn outline outline-2 button-lg black radius-xl btn-aware btn-video"
               >
@@ -71,7 +72,7 @@ function Project({ projectData }: any) {
               >
                 {t("contact-us")}
                 <span></span>
-              </a>
+              </a> */}
             </div>
             <div className="col-lg-7">
               <div
@@ -104,31 +105,31 @@ function Project({ projectData }: any) {
                 <div className="col-xl-4 col-lg-6 col-md-4 col-sm-6 p-lr0">
                   <div className="pro-details">
                     <i className="ti ti-user"></i>
-                    <strong>CLIENT</strong> {projectData.client}
+                    <strong>{t("client")}</strong> {projectData.client}
                   </div>
                 </div>
                 <div className="col-xl-4 col-lg-6 col-md-4 col-sm-6 p-lr0">
                   <div className="pro-details">
                     <i className="ti ti-user"></i>
-                    <strong>ARCHITECT</strong>Jimmy Smith
+                    <strong>{t('architects')}</strong>{projectData.architect}
                   </div>
                 </div>
                 <div className="col-xl-4 col-lg-6 col-md-4 col-sm-6 p-lr0">
                   <div className="pro-details">
                     <i className="ti ti-location-pin"></i>
-                    <strong>LOCATION</strong> {projectData.location}
+                    <strong>{t('location')}</strong> {projectData.location}
                   </div>
                 </div>
                 <div className="col-xl-4 col-lg-6 col-md-4 col-sm-6 p-lr0">
                   <div className="pro-details">
                     <i className="ti ti-ruler-alt-2"></i>
-                    <strong>SIZE</strong>1,200m<sup>2</sup>
+                    <strong>{t('size')}</strong>{projectData?.size}
                   </div>
                 </div>
                 <div className="col-xl-4 col-lg-6 col-md-4 col-sm-6 p-lr0">
                   <div className="pro-details">
                     <i className="ti ti-home"></i>
-                    <strong>TYPE</strong>Residential Project
+                    <strong>{t('project-type')}</strong>{projectData?.category?.data?.attributes?.name}
                   </div>
                 </div>
               </div>
@@ -157,7 +158,7 @@ function ProjectDetails() {
         .then((data) => setProject(data?.data?.data))
         .catch(() => router.push("/"))
     }
-  }, [id])
+  }, [id, locale])
 
   return (
     <Fragment>
@@ -233,12 +234,23 @@ function ProjectDetails() {
 
 export default ProjectDetails
 
-// export const getStaticProps: GetStaticProps = async ({ locale }) => {
-// 	return {
-// 		props: {
-// 			...(await serverSideTranslations(locale!, [
-// 				"common"
-// 			])),
-// 		},
-// 	};
-// };
+export async function getStaticPaths() {
+  return {
+      paths: [
+          {  params: { id: '1' } },
+          {  params: { id: '2' } },
+          {  params: { id: '3' } },
+      ],
+      fallback: true
+  }
+}
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+	return {
+		props: {
+			...(await serverSideTranslations(locale!, [
+				"common"
+			])),
+		},
+	};
+};

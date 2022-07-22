@@ -6,6 +6,7 @@
   "client": " العميل:",
   "completion": "تاريخ الانتهاء:",
   "project-type": "نوع المشروع:",
+  "size": "حجم المشروع:",
   "architects": "المهندسين المعماريين:",
   "portfolio": "معرض الأعمال",
   "projects": "المشروعات",
@@ -21,6 +22,8 @@
   "business-services-consulting": "استشارات خدمات الأعمال",
   "email": "البريد الإلكتروني",
   "phone": "الهاتف",
+  "location": "الموقع",
+
   "send-to-us": "أرسل لنا",
   "fax": "الفاكس",
   "our-address": "عُنوانُنا",

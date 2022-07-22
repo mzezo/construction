@@ -38,6 +38,8 @@ function ContactUs() {
 
 export default ContactUs
 
+
+
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
 	return {
 		props: {
