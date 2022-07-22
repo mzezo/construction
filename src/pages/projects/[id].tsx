@@ -8,12 +8,47 @@ import ReactMarkdown from "react-markdown"
 // import { GetStaticProps } from "next"
 
 function Project({ projectData }: any) {
+  console.log('Project Data', projectData);
   const { t } = useTranslation("common")
 
   return (
     <Fragment>
       <div className="section-full content-inner">
         <div className="container">
+        <div className="row">
+					<div className="col-lg-12 wow fadeInUp mfp-gallery" data-wow-duration="2s" data-wow-delay="0.2s">
+						<div className="dlab-box portfolio-bx style2 project-media">
+							<div className="dlab-media dlab-img-overlay1 dlab-img-effect"> 
+								<a href="javascript:void(0);"> <img src={projectData?.images?.data?.[0]?.attributes?.url} alt="" className="object-cover my-4" style={{height: '450px'}}/> </a>
+								<div className="overlay-bx">
+									<a href="images/projects/img1.jpg" className="mfp-link" title="Title Come Here"><i className="ti-zoom-in"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+        <div className="row our-gallery mfp-gallery">
+					<div className="col-lg-6 col-md-6 col-sm-6 m-b30 wow fadeInLeft" data-wow-duration="2s" data-wow-delay="0.4s">
+						<div className="dlab-box portfolio-bx style2 project-media">
+							<div className="dlab-media dlab-img-overlay1 dlab-img-effect"> 
+								<a href="javascript:void(0);"> <img  src={projectData?.images?.data?.[1]?.attributes?.url} alt="" style={{height: '300px'}} /> </a>
+								<div className="overlay-bx">
+									<a href="images/gallery/gallery-6/pic3.jpg" className="mfp-link" title="Title Come Here"><i className="ti-zoom-in"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div className="col-lg-6 col-md-6 col-sm-6 m-b30 wow fadeInRight" data-wow-duration="2s" data-wow-delay="0.6s">
+						<div className="dlab-box portfolio-bx style2 project-media">
+							<div className="dlab-media dlab-img-overlay1 dlab-img-effect"> 
+								<a href="javascript:void(0);"> <img  src={projectData?.images?.data?.[2]?.attributes?.url} alt="" style={{height: '300px'}}/> </a>
+								<div className="overlay-bx">
+									<a href="images/gallery/gallery-6/pic4.jpg" className="mfp-link" title="Title Come Here"><i className="ti-zoom-in"></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
           <div className="row">
             <div className="col-lg-5 m-b30">
               <div className="section-head style1">
