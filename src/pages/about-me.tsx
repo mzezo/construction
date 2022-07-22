@@ -1,7 +1,10 @@
 import { GetStaticProps } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 function AboutMe() {
+  const { t } = useTranslation("common")
+
   return (
     <div className="page-content bg-white">
       <div className="content-block">
@@ -16,11 +19,10 @@ function AboutMe() {
                         <img src="/images/guide.png" alt="" />
                       </div>
                       <h2 className="title m-b0 text-black text-uppercase font-weight-800">
-                        Free Guide
+                         {t("free-guide")}
                       </h2>
                       <p className="text-black">
-                        We'll email you tips to make a good impression and get
-                        the offer
+                        {t("email-steps")}
                       </p>
                       <form
                         className="dzSubscribe"
@@ -44,7 +46,7 @@ function AboutMe() {
                             type="submit"
                             className="btn black radius-xl btn-lg btn-block"
                           >
-                            Get Started
+                           {t("get-started")}
                           </button>
                         </div>
                       </form>
@@ -67,28 +69,28 @@ function AboutMe() {
               </div>
               <div className="col-lg-4 col-md-12 align-self-center about-me-info">
                 <h2 className="text-uppercase m-b0 title">
-                  <span className="text-primary">I'M </span>Mike John
+                  <span className="text-primary">{t('iam')} </span>{t('company')}
                 </h2>
-                <p className="sub-title">Blogger at start blogging online</p>
+                <p className="sub-title">{t('company-desc')}</p>
                 <div className="widget widget_getintuch">
                   <ul>
                     <li>
                       <i>
                         <img src="/images/icon/icon-info/icon1.png" alt="" />
                       </i>
-                      <strong>E-mail:</strong> ericasmile@company.com{" "}
+                      <strong>{t('email')}</strong> ericasmile@company.com{" "}
                     </li>
                     <li>
                       <i>
                         <img src="/images/icon/icon-info/icon2.png" alt="" />
                       </i>
-                      <strong>Phone:</strong>+1 256 254 84 56
+                      <strong>{t('phone')}</strong>+1 256 254 84 56
                     </li>
                     <li>
                       <i>
                         <img src="/images/icon/icon-info/icon3.png" alt="" />
                       </i>
-                      <strong>Location:</strong>24411 Health Center Drive,{" "}
+                      <strong>{t('location')}</strong>24411 Health Center Drive,{" "}
                       <br />
                       Suite 640
                     </li>
@@ -100,19 +102,14 @@ function AboutMe() {
         </div>
         <div className="section-full p-t30">
           <div className="container">
-            <div className="row">
+            {/* <div className="row">
               <div className="col-lg-6 progress-bx-info m-b30">
                 <h2 className="font-40 text-black font-weight-600">
-                  Our Skills <br />
-                  and Expertise
+                  {t('skills')} <br />
+                  {t('expertise')}
                 </h2>
                 <p className="m-b0">
-                  Lorem ipsum dolor sit amet, conse dipisicing elit. Ea ratione
-                  optio null ius dolor maiores nulla illum Lorem ipsum dolor sit
-                  amet, conse dipisic ing elit. Ea ratione optio null ius dolor
-                  maiores nulla illum, Lorem ipsum dolor sit amet, conse
-                  dipisicing elit. Ea ratione optio null us dolor maiores nulla
-                  illum{" "}
+                  {t('expertise-desc')}
                 </p>
               </div>
               <div className="col-lg-6 align-self-center">
@@ -140,7 +137,7 @@ function AboutMe() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="section-full content-inner">
@@ -148,25 +145,10 @@ function AboutMe() {
             <div className="row">
               <div className="col-lg-12 describe-about-info m-b30">
                 <h2 className="font-40 font-weight-600">
-                  <i className="fas fa-user m-r15"></i>Describe About Me
+                  <i className="fas fa-user m-r15"></i>{t('about-me-txt')}
                 </h2>
                 <p>
-                  Lorem ipsum dolor sit amet, conse dipisicing elit. Ea ratione
-                  optio null ius dolor maiores nulla illum Lorem ipsum dolor sit
-                  amet, conse dipisic ing elit. Ea ration e optio null ius dolor
-                  maiores nulla illum, Lorem ipsum dolor sit amet, conse
-                  dipisicing elit. Ea ratione optio null us dolor maiores nulla
-                  illum Lorem ipsum dolor sit amet, conse dipisic ing elit
-                  dipisicing elit. Ea ratione optio null ius dolor maiores nulla
-                  illum Lorem ipsum dolor sit amet, conse dipisic ing elit. Ea
-                  ration e optio null ius dolor maiores nulla illum conse
-                  dipisicing elit. Ea ratione.
-                </p>
-                <p>
-                  ione optio null ius dolor maiores nulla illum, Lorem ipsum
-                  dolor sit amet ius dolor maiores nulla illum Lorem ipsum dolor
-                  sit amet, conse dipisic ing elit. Ea ratio ne optio null ius
-                  dolor maiores nulla illum,{" "}
+                 {t('about-me-desc')}
                 </p>
               </div>
             </div>

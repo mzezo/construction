@@ -21,6 +21,7 @@
   "business-services-consulting": "Business services consulting",
   "email": "Email",
   "phone": "Phone",
+  "location": "Location",
   "send-to-us": "Send to us",
   "fax": "Fax",
   "our-address": "Our address",
@@ -61,5 +62,17 @@
   "the-principle": "the principle of the design - the harmony, rhythm and balance are all the same with interior and fashion design",
   "modern": "modern",
   "smart": "smart",
-  "creative": "creative"
+  "creative": "creative",
+
+  "free-guide": "Free Guide",
+  "email-steps": "We'll email you tips to make a good impression and get the offer",
+  "get-started": " Get Started",
+  "iam": "We're",
+  "company": "Company Name",
+  "company-desc": "Blogger at start blogging online",
+  "skills": " Our Skills",
+  "expertise": "and Expertise",
+  "expertise-desc": "Lorem ipsum dolor sit amet, conse dipisicing elit. Ea ratione optio null ius dolor maiores nulla illum Lorem ipsum dolor sitamet",
+  "about-me-txt": "Describe About Me",
+  "about-me-desc": " ione optio null ius dolor maiores nulla illum, Lorem ipsum dolor sit amet ius dolor maiores nulla illum Lorem ipsum dolor sit amet,"
 }
